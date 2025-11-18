@@ -1,0 +1,217 @@
+#header-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+main {
+  padding-top: 100vh; /* reserve space for the title pane manually due
+                         to it being absolutely positioned */
+}
+
+#title-pane {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: min(100vw, 100%); /* 100% to account for scrollbar width */
+  height: min(100vh, 100%);
+  view-timeline: --title-pane;
+}
+
+.decoration {
+  width: fit-content;
+  z-index: -1;
+  user-select: none;
+  animation: shake-decoration-y 1.5s cubic-bezier(0.37, 0, 0.63, 1) infinite
+    alternate;
+}
+
+.decoration img {
+  max-width: 60vw;
+  max-height: 60vh;
+  transform-origin: 50% 50%;
+  animation: rotate-decoration 3s ease-in-out infinite alternate;
+}
+
+#decoration-building {
+  top: 0;
+  right: 0;
+  transform: translate(35%, -36%);
+}
+
+/* Move the building decoration down on small screens
+   to make it not overlaid by the header */
+@media screen and (max-width: 42rem) {
+  #decoration-building {
+    margin-top: 4rem;
+  }
+}
+
+#decoration-scroll {
+  bottom: 0;
+  left: 0;
+  transform: translate(-30%, 40%);
+}
+
+@keyframes shake-decoration-y {
+  from {
+    translate: 0 calc(-0.0075 * min(60vw, 60vh));
+  }
+
+  to {
+    translate: 0 calc(0.01 * min(60vw, 60vh));
+  }
+}
+
+@keyframes rotate-decoration {
+  from {
+    rotate: 10deg;
+  }
+
+  to {
+    rotate: -5deg;
+  }
+}
+
+#title-heading {
+  position: absolute;
+  top: 45vh;
+  left: 50vw;
+  max-width: min(60vw, 80rem);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: calc(0.8rem + 3.2vmin);
+}
+
+#arrow-hint {
+  position: absolute;
+  max-width: 10vw;
+  max-height: 10vh;
+  top: 85vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  animation: hint-notify 5s linear infinite;
+}
+
+#arrow-hint img {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes hint-notify {
+  80% {
+    transform: translate(-50%, -50%);
+  }
+
+  85% {
+    transform: translate(-50%, -30%);
+  }
+
+  90% {
+    transform: translate(-50%, -50%);
+  }
+
+  95% {
+    transform: translate(-50%, -30%);
+  }
+
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Use relative positioning instead of fixed for browsers that
+   don't support scroll-driven animations */
+@supports not (view-timeline: --title-pane) {
+  main {
+    position: relative;
+  }
+
+  /* Clip the decorations to prevent horizontal overflow */
+  #title-pane {
+    top: -8px;
+    left: -8px;
+    width: calc(100% + 8px * 2);
+    height: calc(100% + 8px * 2);
+    overflow: hidden;
+  }
+
+  .decoration {
+    position: relative;
+  }
+
+  #decoration-building {
+    top: 0;
+    left: 100vw;
+    transform: translate(-65%, -36%);
+    margin-bottom: max(-60vw, -60vh);
+  }
+
+  #decoration-scroll {
+    top: 100vh;
+    left: 0;
+    transform: translate(-30%, -60%);
+  }
+}
+
+@supports (view-timeline: --title-pane) {
+  .decoration {
+    position: fixed;
+  }
+
+  #decoration-building div {
+    animation: hide-building linear both;
+    animation-timeline: --title-pane;
+    animation-range: 50% 75%;
+  }
+
+  @keyframes hide-building {
+    from {
+    }
+
+    to {
+      transform: translate(100%, -100%);
+    }
+  }
+
+  #decoration-scroll div {
+    animation: hide-scroll linear both;
+    animation-timeline: --title-pane;
+    animation-range: 50% 75%;
+  }
+
+  @keyframes hide-scroll {
+    from {
+    }
+
+    to {
+      transform: translate(-100%, 100%);
+    }
+  }
+
+  #title-heading {
+    animation: fade-out linear both;
+    animation-timeline: --title-pane;
+    animation-range: 50% 75%;
+  }
+
+  #arrow-hint img {
+    animation: fade-out linear both;
+    animation-timeline: --title-pane;
+    animation-range: 50% 55%;
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+}

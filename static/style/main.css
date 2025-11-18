@@ -1,0 +1,33 @@
+/* Common styles for HTML elements */
+
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap");
+
+:root {
+  font-family: "Geologica", sans-serif;
+}
+
+a {
+  align-content: center;
+  text-decoration: none;
+}
+
+button,
+summary {
+  cursor: pointer;
+}
+
+a:hover,
+button:hover,
+summary:hover {
+  filter: brightness(1.2);
+}
+
+[aria-current] {
+  filter: brightness(0.9);
+  font-weight: bold;
+}
+
+img {
+  user-select: none;
+  vertical-align: middle;
+}

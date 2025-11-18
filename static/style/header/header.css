@@ -1,0 +1,47 @@
+header {
+  position: sticky;
+  z-index: 1;
+  anchor-name: --header;
+  top: 8px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 2rem;
+  width: fit-content;
+  margin: auto;
+}
+
+header,
+nav {
+  padding: 0.6rem 1.2rem;
+  border-radius: 1.2rem;
+  background-color: #eee;
+  color: #2e2e2e;
+  border: none;
+  outline: none;
+}
+
+header > div {
+  align-content: center;
+}
+
+header > :first-child {
+  text-align: left;
+}
+
+header > :nth-child(2) {
+  text-align: center;
+}
+
+header > :last-child {
+  text-align: right;
+}
+
+header h1 {
+  margin: 0;
+}
+
+#nav-toggle {
+  background: transparent;
+  border: none;
+  padding: 0;
+}

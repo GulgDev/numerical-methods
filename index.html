@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="/static/img/icon.svg"
+      sizes="any"
+      type="image/svg+xml"
+    />
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/static/style/index.css" />
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="index.css" />
+
+    <title>Роль Академии наук в развитии вычислительных методов</title>
+  </head>
+  <body>
+    <!--
+      This page requires an additional wrapper to make the header
+      not occupy space while maintaining the same position
+    -->
+    <div id="header-container">
+      <header>
+        <div>
+          <a href="/" draggable="false">
+            <img
+              src="/static/img/logo.svg"
+              height="32"
+              alt="Логотип"
+              draggable="false"
+            />
+          </a>
+        </div>
+        <div>
+          <h1>Главная</h1>
+        </div>
+        <div>
+          <button id="nav-toggle" popovertarget="nav">
+            <img
+              src="/static/img/menu.svg"
+              height="32"
+              alt="Меню"
+              draggable="false"
+            />
+          </button>
+        </div>
+      </header>
+    </div>
+
+    <nav id="nav" popover>
+      <menu>
+        <li><a aria-current="page" href="/">Главная</a></li>
+        <li>
+          <details>
+            <summary>Список глав</summary>
+            <menu>
+              <details name="nav-chapter">
+                <summary>Начало пути</summary>
+                <menu>
+                  <li><a href="#">Древний мир</a></li>
+                  <li><a href="#">Средневековье</a></li>
+                  <li><a href="#">Новое время</a></li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Академия наук</summary>
+                <menu>
+                  <li><a href="#">Древний мир</a></li>
+                  <li><a href="#">Средневековье</a></li>
+                  <li><a href="#">Новое время</a></li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Преемственность</summary>
+                <menu>
+                  <li><a href="#">Древний мир</a></li>
+                  <li><a href="#">Средневековье</a></li>
+                  <li><a href="#">Новое время</a></li>
+                </menu>
+              </details>
+            </menu>
+          </details>
+        </li>
+        <li><a href="/about">О нас</a></li>
+      </menu>
+    </nav>
+    <main>
+      <div id="title-pane">
+        <div id="decoration-building" class="decoration">
+          <div>
+            <img
+              class="decoration-image"
+              src="/static/img/decoration-building.svg"
+              draggable="false"
+            />
+          </div>
+        </div>
+        <div id="decoration-scroll" class="decoration">
+          <div>
+            <img
+              class="decoration-image"
+              src="/static/img/decoration-scroll.svg"
+              draggable="false"
+            />
+          </div>
+        </div>
+        <h2 id="title-heading">
+          Роль <nobr>Академии наук</nobr> <nobr>в развитии</nobr> вычислительных
+          методов
+        </h2>
+        <div id="arrow-hint">
+          <img src="/static/img/arrow.svg" draggable="false" />
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
