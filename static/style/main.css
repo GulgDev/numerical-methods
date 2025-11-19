@@ -6,6 +6,10 @@
   font-family: "Geologica", sans-serif;
 }
 
+body {
+  margin: 0;
+}
+
 a {
   align-content: center;
   text-decoration: none;
@@ -30,4 +34,37 @@ summary:hover {
 img {
   user-select: none;
   vertical-align: middle;
+}
+
+main {
+  max-width: 60vw;
+  margin: auto;
+}
+
+footer {
+  margin: auto;
+  margin-top: 8rem;
+  max-width: 40vw;
+  text-align: center;
+}
+
+.frame {
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.6rem;
+  background-color: #eee;
+}
+
+.frame > p:first-child {
+  margin-top: 0;
+}
+
+.frame > p:last-child {
+  margin-bottom: 0;
+}
+
+.button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.6rem;
+  background-color: #222;
+  color: #eee;
 }

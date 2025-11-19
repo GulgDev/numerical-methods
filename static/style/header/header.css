@@ -1,8 +1,29 @@
-header {
+/* Use an additional wrapper to make the header occlude
+   main content with a white-to-transparent gradient */
+#header-container {
   position: sticky;
   z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px 0;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+#header-container::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  display: block;
+  width: 100%;
+  height: 4rem;
+  background-image: linear-gradient(white, transparent);
+}
+
+header {
   anchor-name: --header;
-  top: 8px;
+  z-index: 3;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   gap: 2rem;
