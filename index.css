@@ -259,7 +259,7 @@ main {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.chapter article {
+.section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -267,19 +267,19 @@ main {
   text-align: center;
 }
 
-.chapter article:first-child {
+.section:first-child {
   border-bottom-left-radius: 1rem;
 }
 
-.chapter article:last-child {
+.section:last-child {
   border-bottom-right-radius: 1rem;
 }
 
-.chapter article:nth-child(odd) {
+.section:nth-child(odd) {
   background-color: #ddd;
 }
 
-.chapter article:nth-child(even) {
+.section:nth-child(even) {
   background-color: #eee;
 }
 

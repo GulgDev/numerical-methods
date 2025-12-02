@@ -48,9 +48,54 @@ footer {
   text-align: center;
 }
 
+article {
+  margin-block: 2.5em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+}
+
+figure {
+  position: relative;
+}
+
+figcaption {
+  background-color: #fff8;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 1em;
+  padding: 0.4em 0.8em;
+  border-radius: 0.8em;
+  text-align: center;
+}
+
+figure > img {
+  width: 100%;
+  border-radius: 1.2em;
+}
+
+.flex-row-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  gap: 0 1em;
+  margin-block: 1em;
+}
+
+.flex-row-reverse > * {
+  margin: 0;
+}
+
 .frame {
-  padding: 0.6rem 1.2rem;
-  border-radius: 0.6rem;
+  padding: 1em 1.2em;
+  border-radius: 0.6em;
   background-color: #eee;
 }
 
