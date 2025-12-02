@@ -103,6 +103,11 @@ figure > img {
   margin-bottom: 0;
 }
 
+.info {
+  padding-left: 1em;
+  border-left: 4px solid black;
+}
+
 .button {
   padding: 0.6rem 1.2rem;
   border-radius: 0.6rem;
