@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="/static/img/icon.svg"
+      sizes="any"
+      type="image/svg+xml"
+    />
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/static/style/index.css" />
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="ancient.css" />
+
+    <title>Древний мир • Начало пути</title>
+  </head>
+  <body>
+    <div id="header-container">
+      <header>
+        <div>
+          <a href="/" draggable="false">
+            <img
+              src="/static/img/logo.svg"
+              height="32"
+              alt="Логотип"
+              draggable="false"
+            />
+          </a>
+        </div>
+        <div>
+          <h1>Древний мир</h1>
+        </div>
+        <div>
+          <button id="nav-toggle" popovertarget="nav">
+            <img
+              src="/static/img/menu.svg"
+              height="32"
+              alt="Меню"
+              draggable="false"
+            />
+          </button>
+        </div>
+      </header>
+    </div>
+    <nav id="nav" popover>
+      <menu>
+        <li><a href="/">Главная</a></li>
+        <li>
+          <details>
+            <summary>Список глав</summary>
+            <menu>
+              <details name="nav-chapter">
+                <summary>Начало пути</summary>
+                <menu>
+                  <li>
+                    <a
+                      aria-current="page"
+                      href="/chapters/beginning/ancient.html"
+                      >Древний мир</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/middle-ages.html"
+                      >Средневековье</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/new-age.html">Новое время</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Академия наук</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/academy/foundation.html">Основание</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/academy/numerical-methods/index.html"
+                      >Численные методы</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/academy/contribution.html">Вклад</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Преемственность</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/finale/legacy.html">Наследие Академии</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/modern.html">Современность</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/conclusion.html">Заключение</a>
+                  </li>
+                </menu>
+              </details>
+            </menu>
+          </details>
+        </li>
+        <li><a href="/about">О нас</a></li>
+      </menu>
+    </nav>
+    <main>
+      <article>
+        <div class="frame">
+          <p>
+            Развитие численных методов берет свое начало в глубокой древности,
+            когда ученые и математики делали первые попытки решать прикладные
+            задачипри помощи чисел и простейших расчетов.
+          </p>
+        </div>
+        <div class="info">
+          <p>
+            На этом этапе закладывались фундаментальные принципы и методы,
+            которые впоследствии стали основой для более сложных и точных
+            вычислений.
+          </p>
+        </div>
+        <div id="map">
+          <div class="map-item" id="china">
+            <div class="map-info">
+              <a class="map-info-cross" href="#" draggable="false">&#x1F5D9;</a>
+              <h3>Древний Китай</h3>
+              <p>
+                В Китае использовался метод ложных положений, а также применялся
+                метод фан-чэн, аналогичный методу Гаусса.
+              </p>
+              <p>
+                Также использовался метод, известный как "квадратный корень" или
+                "метод девяти глав". Этот метод включал в себя решения различных
+                уравнений, в том числе и систем линейных уравнений.
+              </p>
+            </div>
+            <a href="#china" draggable="false">
+              <img
+                src="/static/img/map-china.svg"
+                alt="Древний Китай"
+                draggable="false"
+              />
+            </a>
+          </div>
+          <div class="map-item" id="greece">
+            <div class="map-info">
+              <a class="map-info-cross" href="#" draggable="false">&#x1F5D9;</a>
+              <h3>Древняя Греция</h3>
+              <p>
+                Архимед разработал метод исчерпывания, который предвосхитил идеи
+                интегрального исчисления. Этот метод позволял определять площади
+                и объемы 7 сложных фигур путем разбиения их на бесконечно малые
+                части. В своих работах он также использовал приближенные
+                значения для корней квадратных уравнений и разработал методы для
+                вычисления числа π.
+              </p>
+            </div>
+            <a href="#greece" draggable="false">
+              <img
+                src="/static/img/map-greece.svg"
+                alt="Древняя Греция"
+                draggable="false"
+              />
+            </a>
+          </div>
+          <div class="map-item" id="egypt">
+            <div class="map-info">
+              <a class="map-info-cross" href="#" draggable="false">&#x1F5D9;</a>
+              <h3>Древний Египет</h3>
+              <p>
+                В древнем Египте для нахождения площади круга разработали особый
+                численный метод. Также использовался итерационный метод.
+              </p>
+            </div>
+            <a href="#egypt" draggable="false">
+              <img
+                src="/static/img/map-egypt.svg"
+                alt="Древний Египет"
+                draggable="false"
+              />
+            </a>
+          </div>
+          <div class="map-item" id="india">
+            <div class="map-info">
+              <a class="map-info-cross" href="#" draggable="false">&#x1F5D9;</a>
+              <h3>Древняя Индия</h3>
+              <p>
+                В Индии решали системы линейных уравнений методом пропорций.
+                Использовался метод рассеивания, а также вычисляли объемы
+                некоторых тел.
+              </p>
+            </div>
+            <a href="#india" draggable="false">
+              <img
+                src="/static/img/map-india.svg"
+                alt="Древняя Индия"
+                draggable="false"
+              />
+            </a>
+          </div>
+          <div class="map-item" id="babylonia">
+            <div class="map-info">
+              <a class="map-info-cross" href="#" draggable="false">&#x1F5D9;</a>
+              <h3>Вавилонские математики</h3>
+              <p>
+                Вавилонские математики (II тысячелетие до н. э.) разработали для
+                извлечения квадратного корня особый численный метод.
+              </p>
+              <p>
+                Вавилонская глиняная табличка YBC 7289 из вавилонской коллекции
+                Йельского университета была создана между 1800 и 1600 годами до
+                н. э. и демонстрирует
+                <math display="inline">
+                  <msqrt><mi>2</mi></msqrt>
+                </math>
+                и
+                <math display="inline">
+                  <mfrac>
+                    <msqrt><mi>2</mi></msqrt>
+                    <mi>2</mi>
+                  </mfrac>
+                </math>
+                в шестидесятиричной системе счисления.
+              </p>
+            </div>
+            <a href="#babylonia" draggable="false">
+              <img
+                src="/static/img/map-babylonia.svg"
+                alt="Вавилонское Царство"
+                draggable="false"
+              />
+            </a>
+          </div>
+        </div>
+      </article>
+    </main>
+    <footer>
+      <hr />
+      <p>Вебсайт создан студентами <nobr>Колледжа Цифровых Технологий</nobr></p>
+    </footer>
+  </body>
+</html>

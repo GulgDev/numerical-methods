@@ -1,0 +1,84 @@
+#map {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin-block-start: 2em;
+}
+
+.map-item {
+  position: relative;
+}
+
+.map-info {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: none;
+  background-color: #ccc;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+}
+
+.map-item:target > .map-info {
+  display: block;
+}
+
+.map-info-cross {
+  float: right;
+  aspect-ratio: 1;
+  width: auto;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  padding: 0.5em;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.map-item > a {
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+}
+
+.map-item > a > img {
+  transition: transform 100ms ease-in-out;
+}
+
+.map-item > a:hover > img {
+  transform: scale(1.05);
+}
+
+#china {
+  grid-column: 1 / span 6;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+#greece {
+  grid-column: 7 / span 6;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+#egypt {
+  grid-column: 1 / span 4;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+}
+
+#india {
+  grid-column: 5 / span 4;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+}
+
+#babylonia {
+  grid-column: 9 / span 4;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+}
