@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="/static/img/icon.svg"
+      sizes="any"
+      type="image/svg+xml"
+    />
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/static/style/index.css" />
+
+    <title>Основание • Академия наук</title>
+  </head>
+  <body>
+    <div id="header-container">
+      <header>
+        <div>
+          <a href="/" draggable="false">
+            <img
+              src="/static/img/logo.svg"
+              height="32"
+              alt="Логотип"
+              draggable="false"
+            />
+          </a>
+        </div>
+        <div>
+          <h1>Основание Академии</h1>
+        </div>
+        <div>
+          <button id="nav-toggle" popovertarget="nav">
+            <img
+              src="/static/img/menu.svg"
+              height="32"
+              alt="Меню"
+              draggable="false"
+            />
+          </button>
+        </div>
+      </header>
+    </div>
+    <nav id="nav" popover>
+      <menu>
+        <li><a href="/">Главная</a></li>
+        <li>
+          <details>
+            <summary>Список глав</summary>
+            <menu>
+              <details name="nav-chapter">
+                <summary>Начало пути</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/beginning/ancient.html">Древний мир</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/middle-ages.html"
+                      >Средневековье</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/new-age.html">Новое время</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Академия наук</summary>
+                <menu>
+                  <li>
+                    <a
+                      aria-current="page"
+                      href="/chapters/academy/foundation.html"
+                      >Основание</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/academy/numerical-methods/index.html"
+                      >Численные методы</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/academy/contribution.html">Вклад</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Преемственность</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/finale/legacy.html">Наследие Академии</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/modern.html">Современность</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/conclusion.html">Заключение</a>
+                  </li>
+                </menu>
+              </details>
+            </menu>
+          </details>
+        </li>
+        <li><a href="/about.html">О нас</a></li>
+      </menu>
+    </nav>
+    <main>
+      <article>
+        <h2>Основание Академии Наук</h2>
+        <div class="frame">
+          <p>
+            Создание Академии наук прямо связано с реформаторской деятельностью
+            Петра I. Мысль о развитии просвещения и о создании Академии наук
+            появилась в самом начале преобразований.
+          </p>
+        </div>
+        <div class="flex row">
+          <figure style="flex: 400px 1 2">
+            <img src="/static/img/academy-old.png" alt="Академия наук" />
+            <figcaption>Академия наук</figcaption>
+          </figure>
+          <p style="flex: 50% 2 2">
+            Пример Парижской академии, беседы Петра со многими учёными за
+            границей, советы Лейбница, неоднократные представления многих
+            иностранцев, сподвижников Петра, убедили его в необходимости завести
+            академию наук и в России. 
+          </p>
+        </div>
+        <p>
+          Одним из многих предложений был поданный Петру
+          <time datetime="1718-06-11">11 июня 1718 года</time>
+          доклад одного из его иноземных сподвижников, Генриха Фика, «О
+          нетрудном воспитании и обучении российских младых детей, чтобы оных в
+          малое время в совершенство поставить».
+        </p>
+        <div class="info">
+          <p>
+            Этот доклад удостоился такой резолюции Петра: «Сделать академию, а
+            ныне приискать из русских, кто учён и к тому склонность имеет, также
+            начать переводить книги юриспруденции и прочия.»
+          </p>
+        </div>
+        <p>
+          Новая Академия должна была совмещать функции научного исследования и
+          обучения.
+        </p>
+        <div class="flex row">
+          <p style="flex: 50% 2 2">
+            Она также должна была следить за научной литературой и составлять по
+            своей специальности сводки научных результатов, участвовать в
+            еженедельных заседаниях и годичных публичных собраниях Академии,
+            давать научные справки и проверять предлагаемые Академии новые
+            открытия, составлять для студентов курсы по своей науке, читать
+            публичные лекции.
+          </p>
+          <figure style="flex: 400px 1 2">
+            <img
+              src="/static/img/academy-meeting.png"
+              alt="«Первое торжественное заседание в Российской академии наук»"
+            />
+            <figcaption>
+              Картина «Первое торжественное заседание в Российской академии
+              наук»
+            </figcaption>
+          </figure>
+        </div>
+        <div class="frame">
+          <p>
+            Академия наук была основана по указу императора Петра I
+            <time datetime="1724-02-08">8 февраля 1724 года</time>. Официальным
+            днём открытия считается
+            <time datetime="1725-12-27">27 декабря 1725 года</time>, когда
+            Екатерина I устроила торжественный приём академикам.
+          </p>
+        </div>
+      </article>
+    </main>
+    <footer>
+      <hr />
+      <p>Вебсайт создан студентами <nobr>Колледжа Цифровых Технологий</nobr></p>
+    </footer>
+  </body>
+</html>
