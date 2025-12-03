@@ -27,6 +27,7 @@
   display: block;
 }
 
+/* TODO: fix cross being oval */
 .map-info-cross {
   float: right;
   aspect-ratio: 1;
