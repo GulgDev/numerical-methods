@@ -79,16 +79,23 @@ figure > img {
   border-radius: 1.2em;
 }
 
-.flex-row-reverse {
+.flex {
   display: flex;
-  flex-direction: row-reverse;
   flex-wrap: wrap;
   gap: 0 1em;
   margin-block: 1em;
 }
 
-.flex-row-reverse > * {
+.flex > * {
   margin: 0;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.row-reverse {
+  flex-direction: row-reverse;
 }
 
 .frame {
