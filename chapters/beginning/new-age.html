@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="/static/img/icon.svg"
+      sizes="any"
+      type="image/svg+xml"
+    />
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/static/style/index.css" />
+
+    <title>Новое время • Начало пути</title>
+  </head>
+  <body>
+    <div id="header-container">
+      <header>
+        <div>
+          <a href="/" draggable="false">
+            <img
+              src="/static/img/logo.svg"
+              height="32"
+              alt="Логотип"
+              draggable="false"
+            />
+          </a>
+        </div>
+        <div>
+          <h1>Новое время</h1>
+        </div>
+        <div>
+          <button id="nav-toggle" popovertarget="nav">
+            <img
+              src="/static/img/menu.svg"
+              height="32"
+              alt="Меню"
+              draggable="false"
+            />
+          </button>
+        </div>
+      </header>
+    </div>
+    <nav id="nav" popover>
+      <menu>
+        <li><a href="/">Главная</a></li>
+        <li>
+          <details>
+            <summary>Список глав</summary>
+            <menu>
+              <details name="nav-chapter">
+                <summary>Начало пути</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/beginning/ancient.html">Древний мир</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/middle-ages.html"
+                      >Средневековье</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      aria-current="page"
+                      href="/chapters/beginning/new-age.html"
+                      >Новое время</a
+                    >
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Академия наук</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/academy/foundation.html">Основание</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/academy/numerical-methods/index.html"
+                      >Численные методы</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/academy/contribution.html">Вклад</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Преемственность</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/finale/legacy.html">Наследие Академии</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/modern.html">Современность</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/conclusion.html">Заключение</a>
+                  </li>
+                </menu>
+              </details>
+            </menu>
+          </details>
+        </li>
+        <li><a href="/about.html">О нас</a></li>
+      </menu>
+    </nav>
+    <main>
+      <article>
+        <h2>Эпоха Возрождения</h2>
+        <div class="frame">
+          <p>
+            Эпоха Возрождения и новый период в истории человечества
+            ознаменовались значительными научными и культурными изменениями.
+          </p>
+        </div>
+        <p>
+          В этот период наблюдается активное развитие математики и численных
+          методов, что в значительной мере обусловлено возрождением интереса к
+          античной науке, а также бурным ростом научных знаний и
+          изобретательской активности.
+        </p>
+      </article>
+      <article>
+        <h2>Возрождение математической мылси</h2>
+        <p>
+          Наблюдается возрождение интереса к трудам древнегреческих и римских
+          ученых, что стало стимулом для развития численных методов.
+        </p>
+        <article>
+          <h3>Симон Стевин</h3>
+          <p>
+            Одним из ключевых вкладов в эту область является введение десятичной
+            системы счисления Симоном Стевином (1548–1620).
+          </p>
+          <div class="frame">
+            <p>
+              В своей работе «De Thiende» Стевин показал, как использование
+              десятичных дробей может существенно упростить выполнение
+              арифметических операций.
+            </p>
+          </div>
+          <div class="flex row" style="justify-content: space-evenly">
+            <figure style="flex: auto 2 2; min-width: 200px; max-width: 300px">
+              <img src="/static/img/stevin.png" alt="Стевин" />
+              <figcaption>Симон Стевин</figcaption>
+            </figure>
+            <figure style="flex: auto 2 2; min-width: 200px; max-width: 250px">
+              <img src="/static/img/de-thiende.png" alt="«De Thiende»" />
+              <figcaption>Книга Симона Стевина «De Thiende»</figcaption>
+            </figure>
+          </div>
+        </article>
+      </article>
+      <article>
+        <h2>Развитие алгебры</h2>
+        <p>
+          В этот период значительные успехи были достигнуты в области алгебры,
+          что имело прямое влияние на численные методы.
+        </p>
+        <article>
+          <h3>Франсуа Виет</h3>
+          <p>
+            Французский математик Франсуа Виет ввёл символическую алгебру, что
+            позволило более эффективно решать уравнения и работать с полиномами.
+          </p>
+          <div class="frame">
+            <p>
+              Его труды, такие как «In artem analyticem isagoge», стали основой
+              для развития аналитических методов, которые применялись для
+              численного решения прикладных задач.
+            </p>
+          </div>
+          <div class="flex row" style="justify-content: space-evenly">
+            <figure style="flex: auto 2 2; min-width: 200px; max-width: 300px">
+              <img src="/static/img/vieta.png" alt="Виет" />
+              <figcaption>Франсуа Виет</figcaption>
+            </figure>
+            <figure style="flex: auto 2 2; min-width: 200px; max-width: 250px">
+              <img
+                src="/static/img/in-artem-analyticem-isagoge.png"
+                alt="«In artem analyticem isagoge»"
+              />
+              <figcaption>
+                Работа Франсуа Виета «In artem analyticem isagoge»
+              </figcaption>
+            </figure>
+          </div>
+        </article>
+      </article>
+      <article>
+        <h2>Научная революция</h2>
+        <p>
+          Новый этап развития численных методов связан с научной революцией XVII
+          века.
+        </p>
+        <p>
+          В этот период происходит становление и развитие новых научных подходов
+          и методов, что значительно расширяет возможности численных методов.
+        </p>
+        <article>
+          <h3>Исаак Ньютон и Готфрид Вильгельм Лейбниц</h3>
+          <p>
+            Исаак Ньютон (1643–1727) и Готфрид Вильгельм Лейбниц (1646–1716)
+            независимо друг от друга разработали основы дифференциального и
+            интегрального исчисления.
+          </p>
+          <div class="frame">
+            Эти методы стали основой для численного анализа, позволяя решать
+            широкий круг задач в физике и инженерии.
+          </div>
+          <div class="flex row">
+            <figure style="flex: 200px 1 2">
+              <img src="/static/img/newton.png" alt="Ньютон" />
+              <figcaption>Исаак Ньютон</figcaption>
+            </figure>
+            <div style="flex: 50% 2 2">
+              <p>
+                Ньютон, в частности, разработал метод касательных для численного
+                решения уравнений. Этот метод позволяет находить корни
+                нелинейных уравнений и является одним из первых примеров
+                численных алгоритмов, используемых до сих пор.
+              </p>
+              <p>
+                Кроме того, Ньютон применял свои методы для решения задач
+                механики и астрономии, что продемонстрировало их практическую
+                ценность.
+              </p>
+            </div>
+          </div>
+        </article>
+      </article>
+    </main>
+    <footer>
+      <hr />
+      <p>Вебсайт создан студентами <nobr>Колледжа Цифровых Технологий</nobr></p>
+    </footer>
+  </body>
+</html>
