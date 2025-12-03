@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="/static/img/icon.svg"
+      sizes="any"
+      type="image/svg+xml"
+    />
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/static/style/index.css" />
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="ancient.css" />
+
+    <title>Средневековье • Начало пути</title>
+  </head>
+  <body>
+    <div id="header-container">
+      <header>
+        <div>
+          <a href="/" draggable="false">
+            <img
+              src="/static/img/logo.svg"
+              height="32"
+              alt="Логотип"
+              draggable="false"
+            />
+          </a>
+        </div>
+        <div>
+          <h1>Средневековье</h1>
+        </div>
+        <div>
+          <button id="nav-toggle" popovertarget="nav">
+            <img
+              src="/static/img/menu.svg"
+              height="32"
+              alt="Меню"
+              draggable="false"
+            />
+          </button>
+        </div>
+      </header>
+    </div>
+    <nav id="nav" popover>
+      <menu>
+        <li><a href="/">Главная</a></li>
+        <li>
+          <details>
+            <summary>Список глав</summary>
+            <menu>
+              <details name="nav-chapter">
+                <summary>Начало пути</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/beginning/ancient.html">Древний мир</a>
+                  </li>
+                  <li>
+                    <a
+                      aria-current="page"
+                      href="/chapters/beginning/middle-ages.html"
+                      >Средневековье</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/new-age.html">Новое время</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Академия наук</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/academy/foundation.html">Основание</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/academy/numerical-methods/index.html"
+                      >Численные методы</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/academy/contribution.html">Вклад</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Преемственность</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/finale/legacy.html">Наследие Академии</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/modern.html">Современность</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/conclusion.html">Заключение</a>
+                  </li>
+                </menu>
+              </details>
+            </menu>
+          </details>
+        </li>
+        <li><a href="/about">О нас</a></li>
+      </menu>
+    </nav>
+    <main>
+      <article>
+        <h2>Исламский мир</h2>
+        <div class="frame">
+          <p>
+            Математики того времени внесли значительный вклад в алгебру и
+            разработку алгоритмов.
+          </p>
+        </div>
+        <article>
+          <h3>Мухаммед ибн Мусы аль-Хорезми</h3>
+          <div class="flex row-reverse">
+            <figure style="flex: 600px 1 2">
+              <img
+                src="/static/img/al-jabr.png"
+                alt="Трактат «Китаб аль-Джебр валь Мукабала»"
+              />
+              <figcaption>Трактат «Китаб аль-Джебр валь Мукабала»</figcaption>
+            </figure>
+            <div style="flex: 40% 2 2">
+              <p>
+                Самый известный математик Исламского Мира — аль-Хорезми. Он
+                заложил основу математики того времени.
+              </p>
+              <div class="info">
+                Его трактат «Китаб аль-Джебр валь Мукабала» систематизировал и
+                изложил арифметику в позиционной десятичной системе счиления и
+                решение квадратного уравнения.
+              </div>
+            </div>
+          </div>
+          <div class="frame">
+            <p>
+              В Европу трактат аль-Хорезми пришел с переводом на латинский язык
+              в XII веке. Начало развития современной европейской математики
+              связывают с этой книгой и именем её автора.
+            </p>
+            <p>
+              Важно отметить, что слово «алгоритм» происходит от
+              латинизированного имени аль-Хорезми.
+            </p>
+          </div>
+        </article>
+      </article>
+      <article>
+        <h2>Европа</h2>
+        <div class="frame">
+          <p>
+            На западе, в Европе, развитие численных методов в этот период шло
+            медленнее, однако некоторые достижения всё же имели место.
+          </p>
+        </div>
+        <article>
+          <h3>Леонардо Фибоначчи</h3>
+          <div class="flex row">
+            <figure style="flex: 400px 1 2">
+              <img src="/static/img/fibonacci.png" alt="Фибоначчи" />
+              <figcaption>Леонардо Фибоначчи</figcaption>
+            </figure>
+            <div style="flex: 50% 2 2">
+              <p>
+                Итальянский математик Леонардо Фибоначчи ввёл в западную
+                математику индийско-арабскую систему счисления.
+              </p>
+              <div class="frame">
+                <p>
+                  Это значительно упростило выполнение арифметических операций и
+                  решило проблему сложных расчетов.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </article>
+    </main>
+    <footer>
+      <hr />
+      <p>Вебсайт создан студентами <nobr>Колледжа Цифровых Технологий</nobr></p>
+    </footer>
+  </body>
+</html>
