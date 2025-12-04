@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="/static/img/icon.svg"
+      sizes="any"
+      type="image/svg+xml"
+    />
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/static/style/index.css" />
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="index.css" />
+
+    <title>Численные методы • Академия наук</title>
+  </head>
+  <body>
+    <div id="header-container">
+      <header>
+        <div>
+          <a href="/" draggable="false">
+            <img
+              src="/static/img/logo.svg"
+              height="32"
+              alt="Логотип"
+              draggable="false"
+            />
+          </a>
+        </div>
+        <div>
+          <h1>Численные методы</h1>
+        </div>
+        <div>
+          <button id="nav-toggle" popovertarget="nav">
+            <img
+              src="/static/img/menu.svg"
+              height="32"
+              alt="Меню"
+              draggable="false"
+            />
+          </button>
+        </div>
+      </header>
+    </div>
+    <nav id="nav" popover>
+      <menu>
+        <li><a href="/">Главная</a></li>
+        <li>
+          <details>
+            <summary>Список глав</summary>
+            <menu>
+              <details name="nav-chapter">
+                <summary>Начало пути</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/beginning/ancient.html">Древний мир</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/middle-ages.html"
+                      >Средневековье</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/new-age.html">Новое время</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Академия наук</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/academy/foundation.html">Основание</a>
+                  </li>
+                  <li>
+                    <a
+                      aria-current="page"
+                      href="/chapters/academy/numerical-methods/index.html"
+                      >Численные методы</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/academy/contribution.html">Вклад</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Преемственность</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/finale/legacy.html">Наследие Академии</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/modern.html">Современность</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/conclusion.html">Заключение</a>
+                  </li>
+                </menu>
+              </details>
+            </menu>
+          </details>
+        </li>
+        <li><a href="/about.html">О нас</a></li>
+      </menu>
+    </nav>
+    <main>
+      <article>
+        <!-- <div id="scientists">
+          <div>
+            <div class="scientist-photos">
+              <img src="/static/img/euler.png" />
+            </div>
+            <span>Леонард Эйлер</span>
+          </div>
+          <div>
+            <div class="scientist-photos">
+              <img src="/static/img/chebyshev.png" />
+            </div>
+            <span>Пафнутий Чебышёв</span>
+          </div>
+          <div>
+            <div class="scientist-photos">
+              <img src="/static/img/krylov.png" />
+            </div>
+            <span>Алексей Крылов</span>
+          </div>
+          <div>
+            <div class="scientist-photos">
+              <img src="/static/img/kantorovich.png" />
+            </div>
+            <span>Леонид Канторович</span>
+          </div>
+          <div style="grid-column: 2 / span 2">
+            <div class="scientist-photos">
+              <img src="/static/img/samarskii.png" />
+              <img src="/static/img/yanenko.png" />
+            </div>
+            <span>Самарский и Яненко</span>
+          </div>
+        </div> -->
+        <ol id="scientists">
+          <li>
+            <a href="euler.html">
+              <img src="/static/img/euler.png" />
+              <span>Леонард Эйлер</span>
+            </a>
+          </li>
+          <li>
+            <a href="chebyshev.html">
+              <img src="/static/img/chebyshev.png" />
+              <span>Пафнутий Чебышёв</span>
+            </a>
+          </li>
+          <li>
+            <a href="krylov.html">
+              <img src="/static/img/krylov.png" />
+              <span>Алексей Крылов</span>
+            </a>
+          </li>
+          <li>
+            <a href="kantorovich.html">
+              <img src="/static/img/kantorovich.png" />
+              <span>Леонид Канторович</span>
+            </a>
+          </li>
+          <li>
+            <a href="samarskii.html">
+              <img src="/static/img/samarskii.png" />
+              <span>Александр Самарский</span>
+            </a>
+          </li>
+          <li>
+            <a href="yanenko.html">
+              <img src="/static/img/yanenko.png" />
+              <span>Николай Яненко</span>
+            </a>
+          </li>
+        </ol>
+      </article>
+    </main>
+    <footer>
+      <hr />
+      <p>Вебсайт создан студентами <nobr>Колледжа Цифровых Технологий</nobr></p>
+    </footer>
+  </body>
+</html>
