@@ -100,6 +100,10 @@ figure > img {
   flex-direction: row-reverse;
 }
 
+.rounded {
+  border-radius: 1.2em;
+}
+
 .frame {
   padding: 1em 1.2em;
   border-radius: 0.6em;
