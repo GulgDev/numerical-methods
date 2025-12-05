@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="/static/img/icon.svg"
+      sizes="any"
+      type="image/svg+xml"
+    />
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/static/style/index.css" />
+
+    <title>Леонард Эйлер • Численные методы • Академия наук</title>
+  </head>
+  <body>
+    <div id="header-container">
+      <header>
+        <div>
+          <a href="/" draggable="false">
+            <img
+              src="/static/img/logo.svg"
+              height="32"
+              alt="Логотип"
+              draggable="false"
+            />
+          </a>
+        </div>
+        <div>
+          <h1>Леонард Эйлер</h1>
+        </div>
+        <div>
+          <button id="nav-toggle" popovertarget="nav">
+            <img
+              src="/static/img/menu.svg"
+              height="32"
+              alt="Меню"
+              draggable="false"
+            />
+          </button>
+        </div>
+      </header>
+    </div>
+    <nav id="nav" popover>
+      <menu>
+        <li><a href="/">Главная</a></li>
+        <li>
+          <details>
+            <summary>Список глав</summary>
+            <menu>
+              <details name="nav-chapter">
+                <summary>Начало пути</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/beginning/ancient.html">Древний мир</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/middle-ages.html"
+                      >Средневековье</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/new-age.html">Новое время</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Академия наук</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/academy/foundation.html">Основание</a>
+                  </li>
+                  <li>
+                    <a
+                      aria-current="page"
+                      href="/chapters/academy/numerical-methods/index.html"
+                      >Численные методы</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/academy/contribution.html">Вклад</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Преемственность</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/finale/legacy.html">Наследие Академии</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/modern.html">Современность</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/conclusion.html">Заключение</a>
+                  </li>
+                </menu>
+              </details>
+            </menu>
+          </details>
+        </li>
+        <li><a href="/about.html">О нас</a></li>
+      </menu>
+    </nav>
+    <main>
+      <article>
+        <h2>Леонард Эйлер</h2>
+        <div class="frame">
+          <p>
+            Леонард Эйлер — швейцарский, прусский и российский учёный,
+            крупнейший математик XVIII века, считающийся одним из величайших в
+            истории. Он родился 15 апреля 1707 года в городе Базель, Швейцария.
+            Образованием мальчика занимался его отец, друживший с математиком
+            Бернулли пастор Пауль Эйлер, который обнаружил у сына математические
+            способности ещё в раннем детстве.
+          </p>
+        </div>
+        <div class="flex">
+          <div style="flex: 200px 1 2">
+            <img class="rounded" src="/static/img/euler.png" />
+          </div>
+          <p style="flex: 50% 2 2">
+            В возрасте 8 лет Эйлер был отправлен на проживание к бабушке и
+            определен в базельскую гимназию. Преподаватели заметили талант
+            ученика, и в возрасте 13 лет ему позволили посещать занятия в
+            университете Базеля, где он впоследствии выступил претендентом на
+            вакансию профессора и представил по этому случаю «Диссертацию по
+            физике о звуке». Труд был оценен положительно, но все же
+            профессорскую кафедру доверить 19-летнему Леонарду побоялись.
+          </p>
+        </div>
+        <p>
+          Вскоре после этого Эйлер был приглашён работать в Санкт-Петербург, где
+          с 1726 по 1741 год, а также с 1766 года был академиком Петербургской
+          академии наук (будучи сначала адъюнктом, а с 1731 года — профессором).
+          Именно он заложил основу для развития вычислительных методов в
+          Академии.
+        </p>
+      </article>
+      <article>
+        <h2>Метод Эйлера</h2>
+        <div class="info">
+          <p>
+            Метод Эйлера является первым численным методом для решения
+            обыкновенных дифференциальных уравнений, т. е. уравнений, которые
+            определяют, как быстро меняется величина (вместо того, чтобы
+            говорить: “пройденный путь
+            <math display="inline">
+              <mi>S</mi>
+              <mo>(</mo>
+              <mi>t</mi>
+              <mo>)</mo>
+            </math>
+            равен произведению скорости
+            <math display="inline"> <mi>v</mi> </math>
+            на время
+            <math display="inline"> <mi>t</mi> </math>”, мы говорим: “пройденный
+            путь
+            <math display="inline">
+              <mi>S</mi>
+              <mo>(</mo>
+              <mi>t</mi>
+              <mo>)</mo>
+            </math>
+            меняется со скоростью
+            <math display="inline"> <mi>v</mi> </math>”). Функция, определяющая
+            изменение величины называется производной.
+          </p>
+        </div>
+        <p>
+          Рассмотрим маятник, движение которого задаётся системой
+          дифференциальных уравнений:
+          <math display="block">
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mfrac>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>x</mi>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </mfrac>
+                  <mo>=</mo>
+                  <mi>v</mi>
+                </mtd>
+                <mtd>
+                  <mtext>(производная функции x(t))</mtext>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mfrac>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>v</mi>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </mfrac>
+                  <mo>=</mo>
+                  <mrow>
+                    <mo>-</mo>
+                    <mfrac>
+                      <mi>c</mi>
+                      <mi>m</mi>
+                    </mfrac>
+                    <mo>&InvisibleTimes;</mo>
+                    <mi>v</mi>
+                    <mo>-</mo>
+                    <mfrac>
+                      <mi>k</mi>
+                      <mi>m</mi>
+                    </mfrac>
+                    <mo>&InvisibleTimes;</mo>
+                    <mi>x</mi>
+                  </mrow>
+                </mtd>
+                <mtd>
+                  <mtext>(производная функции v(t))</mtext>
+                </mtd>
+              </mtr>
+            </mtable>
+          </math>
+        </p>
+        <div class="frame">
+          <h4>Простыми словами</h4>
+          <p>
+            Переводя с математического языка, мы можем сказать, что координата
+            маятника <math display="inline"> <mi>x</mi> </math> меняется с
+            течением времени <math display="inline"> <mi>t</mi> </math> со
+            скоростью <math display="inline"> <mi>v</mi> </math> (<math
+              display="inline"
+            >
+              <mi>d</mi><mi>x</mi>
+            </math>
+            здесь показывает изменение переменной
+            <math display="inline"> <mi>x</mi> </math>), а скорость
+            <math display="inline"> <mi>v</mi> </math> меняется в зависимости от
+            массы <math display="inline"> <mi>m</mi> </math>, коэффициента
+            затухания <math display="inline"> <mi>c</mi> </math> (трение,
+            сопротивление воздуха) и жёсткости пружины
+            <math display="inline"> <mi>k</mi> </math> (насколько тяжело пружина
+            растягивается), а также от текущей скорости
+            <math display="inline"> <mi>v</mi> </math> и координаты
+            <math display="inline"> <mi>x</mi> </math>.
+          </p>
+        </div>
+        <p>
+          Теперь давайте построим с помощью метода Эйлера график функции
+          <math display="inline">
+            <mi>x</mi>
+            <mo>(</mo>
+            <mi>t</mi>
+            <mo>)</mo>
+          </math>
+          (зависимости координаты от времени). Для этого мысленно перенесёмся в
+          точку
+          <math display="inline">
+            <mo>(</mo>
+            <mrow>
+              <msub>
+                <mi>t</mi>
+                <mn>0</mn>
+              </msub>
+              <mo>;</mo>
+              <msub>
+                <mi>x</mi>
+                <mn>0</mn>
+              </msub>
+            </mrow>
+            <mo>)</mo> </math
+          >, где
+          <math display="inline">
+            <msub>
+              <mi>x</mi>
+              <mn>0</mn>
+            </msub>
+          </math>
+          – первоначальная координата маятника, а
+          <math display="inline">
+            <msub>
+              <mi>t</mi>
+              <mn>0</mn>
+            </msub>
+            <mo>=</mo> <mn>0</mn>
+          </math>
+          – время начала отсчёта. После этого будем постепенно шагать по оси x,
+          увеличивая время <math display="inline"> <mi>t</mi> </math> на шаг
+          <math display="inline"> <mi>h</mi> </math> (чем меньше шаг, тем больше
+          точность):
+          <math display="block">
+            <msub> <mi>t</mi> <mi>i</mi> </msub> <mo>=</mo>
+            <mrow>
+              <msub>
+                <mi>t</mi> <mrow> <mi>i</mi> <mo>-</mo> <mn>1</mn> </mrow>
+              </msub>
+              <mo>+</mo>
+              <mi>h</mi>
+            </mrow>
+            <mtext>,</mtext>
+          </math>
+          где <math display="inline"> <mi>i</mi> </math> – номер шага. На каждом
+          шаге мы также будем менять значение переменных
+          <math display="inline"> <mi>x</mi> </math> и
+          <math display="inline"> <mi>v</mi> </math>.
+        </p>
+        <p>
+          Поскольку
+          <math display="block">
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mrow> <mi>d</mi><mi>x</mi> </mrow> <mo>&approx;</mo>
+                  <mrow>
+                    <msub> <mi>x</mi> <mi>i</mi> </msub> <mo>-</mo>
+                    <msub>
+                      <mi>x</mi> <mrow> <mi>i</mi> <mo>-</mo> <mn>1</mn> </mrow>
+                    </msub>
+                  </mrow>
+                </mtd>
+                <mtd>
+                  <mtext
+                    >– изменение переменной x между предыдущим и текущим
+                    шагом,</mtext
+                  >
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mrow> <mi>d</mi><mi>t</mi> </mrow> <mo>&approx;</mo>
+                  <mrow>
+                    <mi>h</mi>
+                  </mrow>
+                  <mtext>,</mtext>
+                </mtd>
+              </mtr>
+            </mtable>
+          </math>
+          то:
+          <math display="block">
+            <mrow>
+              <mfrac>
+                <mrow>
+                  <mi>d</mi>
+                  <mi>x</mi>
+                </mrow>
+                <mrow>
+                  <mi>d</mi>
+                  <mi>t</mi>
+                </mrow>
+              </mfrac>
+              <mo>=</mo>
+              <mi>v</mi>
+            </mrow>
+            <mo>&Rightarrow;</mo>
+            <mrow>
+              <mrow>
+                <mi>d</mi>
+                <mi>x</mi>
+              </mrow>
+              <mo>=</mo>
+              <mrow>
+                <mi>v</mi>
+                <mo>&middot;</mo>
+                <mrow>
+                  <mi>d</mi>
+                  <mi>t</mi>
+                </mrow>
+              </mrow>
+            </mrow>
+            <mo>&Rightarrow;</mo>
+            <mrow>
+              <mrow>
+                <msub> <mi>x</mi> <mi>i</mi> </msub> <mo>-</mo>
+                <msub>
+                  <mi>x</mi> <mrow> <mi>i</mi> <mo>-</mo> <mn>1</mn> </mrow>
+                </msub>
+              </mrow>
+              <mo>=</mo>
+              <mrow>
+                <mi>v</mi>
+                <mo>&middot;</mo>
+                <mi>h</mi>
+              </mrow>
+            </mrow>
+            <mo>&Rightarrow;</mo>
+            <mrow>
+              <msub> <mi>x</mi> <mi>i</mi> </msub>
+              <mo>=</mo>
+              <mrow>
+                <msub>
+                  <mi>x</mi> <mrow> <mi>i</mi> <mo>-</mo> <mn>1</mn> </mrow>
+                </msub>
+                <mo>+</mo>
+                <mi>v</mi>
+                <mo>&middot;</mo>
+                <mi>h</mi>
+              </mrow>
+            </mrow>
+          </math>
+        </p>
+        <p>
+          Аналогично для переменной
+          <math display="inline"> <mi>v</mi> </math>:
+          <math display="block">
+            <mrow>
+              <mfrac>
+                <mrow>
+                  <mi>d</mi>
+                  <mi>v</mi>
+                </mrow>
+                <mrow>
+                  <mi>d</mi>
+                  <mi>t</mi>
+                </mrow>
+              </mfrac>
+              <mo>=</mo>
+              <mrow>
+                <mo>-</mo>
+                <mfrac>
+                  <mi>c</mi>
+                  <mi>m</mi>
+                </mfrac>
+                <mo>&InvisibleTimes;</mo>
+                <mi>v</mi>
+                <mo>-</mo>
+                <mfrac>
+                  <mi>k</mi>
+                  <mi>m</mi>
+                </mfrac>
+                <mo>&InvisibleTimes;</mo>
+                <mi>x</mi>
+              </mrow>
+            </mrow>
+            <mo>&Rightarrow;</mo>
+            <mrow>
+              <msub>
+                <mi>v</mi>
+                <mi>i</mi>
+              </msub>
+              <mo>=</mo>
+              <mrow>
+                <msub>
+                  <mi>v</mi>
+                  <mrow> <mi>i</mi> <mo>-</mo> <mn>1</mn> </mrow>
+                </msub>
+                <mo>+</mo>
+                <mo>(</mo>
+                <mrow>
+                  <mo>-</mo>
+                  <mfrac>
+                    <mi>c</mi>
+                    <mi>m</mi>
+                  </mfrac>
+                  <mo>&InvisibleTimes;</mo>
+                  <mi>v</mi>
+                  <mo>-</mo>
+                  <mfrac>
+                    <mi>k</mi>
+                    <mi>m</mi>
+                  </mfrac>
+                  <mo>&InvisibleTimes;</mo>
+                  <mi>x</mi>
+                </mrow>
+                <mo>)</mo>
+                <mo>&middot;</mo>
+                <mi>h</mi>
+              </mrow>
+            </mrow>
+          </math>
+        </p>
+        <!-- TODO: Interactive math model -->
+      </article>
+    </main>
+    <footer>
+      <hr />
+      <p>Вебсайт создан студентами <nobr>Колледжа Цифровых Технологий</nobr></p>
+    </footer>
+  </body>
+</html>
