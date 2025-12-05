@@ -7,6 +7,7 @@ main {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: -1;
   width: min(100vw, 100%); /* 100% to account for scrollbar width */
   height: min(100vh, 100%);
   view-timeline: --title-pane;
@@ -130,8 +131,8 @@ main {
 /* Use relative positioning instead of fixed for browsers that
    don't support scroll-driven animations */
 @supports not (view-timeline: --title-pane) {
-  main {
-    position: relative;
+  body {
+    overflow-x: hidden;
   }
 
   /* Clip the decorations to prevent horizontal overflow */
@@ -140,7 +141,6 @@ main {
     left: 0;
     width: calc(100%);
     height: calc(100%);
-    overflow: hidden;
   }
 
   .decoration {
