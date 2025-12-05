@@ -81,6 +81,19 @@ figure > img {
   border-radius: 1.2em;
 }
 
+math {
+  font-size: 1.25rem;
+}
+
+math[display="block"] {
+  margin-block: 0.5em;
+}
+
+mtext {
+  font-size: 1rem;
+  font-family: "Geologica", sans-serif;
+}
+
 .flex {
   display: flex;
   flex-wrap: wrap;
@@ -110,11 +123,11 @@ figure > img {
   background-color: #eee;
 }
 
-.frame > p:first-child {
+.frame > :first-child {
   margin-top: 0;
 }
 
-.frame > p:last-child {
+.frame > :last-child {
   margin-bottom: 0;
 }
 
