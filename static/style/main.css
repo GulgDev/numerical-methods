@@ -50,6 +50,13 @@ footer {
   text-align: center;
 }
 
+@media screen and (max-width: 40rem) {
+  footer {
+    width: min-content;
+    max-width: none;
+  }
+}
+
 article {
   margin-block: 2.5em;
 }
