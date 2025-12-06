@@ -86,12 +86,14 @@ math {
 }
 
 math[display="block"] {
+  overflow: auto hidden;
   margin-block: 0.5em;
 }
 
 mtext {
   font-size: 1rem;
   font-family: "Geologica", sans-serif;
+  width: max-content;
 }
 
 .flex {
