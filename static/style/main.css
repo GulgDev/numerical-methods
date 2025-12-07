@@ -103,6 +103,19 @@ mtext {
   width: max-content;
 }
 
+input {
+  font: inherit;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 0.4em;
+  transition: border-color ease-in-out 120ms;
+  padding: 0.2em 0.4em;
+}
+
+input:focus {
+  border-color: #888;
+}
+
 .flex {
   display: flex;
   flex-wrap: wrap;
