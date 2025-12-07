@@ -54,9 +54,3 @@ header > * {
 header h1 {
   margin: 0;
 }
-
-#nav-toggle {
-  background: transparent;
-  border: none;
-  padding: 0;
-}
