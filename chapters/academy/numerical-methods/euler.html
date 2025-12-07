@@ -329,7 +329,7 @@
                   </mfrac>
                   <mo>&InvisibleTimes;</mo>
                   <msub>
-                  <mi>v</mi>
+                    <mi>v</mi>
                     <mrow> <mi>i</mi> <mo>-</mo> <mn>1</mn> </mrow>
                   </msub>
                   <mo>-</mo>
@@ -350,11 +350,223 @@
             </mrow>
           </math>
         </p>
+        <form>
+          <h3>Пример</h3>
+          <div>
+            <h4>Параметры маятника:</h4>
+            <div class="flex">
+              <label>
+                <math display="inline"> <mi>c</mi> </math>
+                =
+                <input
+                  id="c-input"
+                  type="number"
+                  value="2"
+                  min="0"
+                  step="0.1"
+                />
+              </label>
+              <label>
+                <math display="inline"> <mi>m</mi> </math>
+                =
+                <input id="m-input" type="number" value="1" />
+              </label>
+              <label>
+                <math display="inline"> <mi>k</mi> </math>
+                =
+                <input id="k-input" type="number" value="10" min="1" step="1" />
+              </label>
+            </div>
           </div>
-        </p>
-        <!-- TODO: Interactive math model -->
+          <div>
+            <h4>Начальные значения переменных:</h4>
+            <div class="flex">
+              <label>
+                <math display="inline">
+                  <msub> <mi>x</mi> <mn>0</mn> </msub>
+                </math>
+                =
+                <input id="x0-input" type="number" value="1" />
+              </label>
+              <label>
+                <math display="inline">
+                  <msub> <mi>v</mi> <mn>0</mn> </msub>
+                </math>
+                =
+                <input id="v0-input" type="number" value="0" />
+              </label>
+            </div>
+          </div>
+          <div>
+            <h4>Шаг, конечное время:</h4>
+            <div class="flex">
+              <label>
+                <math display="inline"> <mi>h</mi> </math>
+                =
+                <input
+                  id="h-input"
+                  type="number"
+                  value="0.1"
+                  min="0.1"
+                  step="0.1"
+                />
+              </label>
+              <label>
+                <math display="inline"> <mi>t</mi> </math>
+                =
+                <input id="t-input" type="number" min="0" value="16" />
+              </label>
+            </div>
+          </div>
+          <div class="flex">
+            <div style="flex: 200px 1 2">
+              <canvas id="graph" style="max-width: 100%" />
+            </div>
+            <div style="flex: min-content">
+              <p>
+                *Для сравнения:
+                <span style="color: #f68">красный график</span> построен методом
+                Эйлера, а <span style="color: #86f">синий</span> - более точным
+                (Рунге — Кутты).
+              </p>
+              <p>
+                Как видно, разница между графиками велика, и чем больше
+                амплитуда колебаний, тем погрешность больше. Таким образом,
+                метода Эйлера недостаточно для точных вычислений, поэтому чаще
+                всего используются другие, более точные, методы, многие из
+                которых основаны на нём.
+              </p>
+            </div>
+          </div>
+        </form>
       </article>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const inputs = {
+        c: document.getElementById("c-input"),
+        m: document.getElementById("m-input"),
+        k: document.getElementById("k-input"),
+        x0: document.getElementById("x0-input"),
+        v0: document.getElementById("v0-input"),
+        h: document.getElementById("h-input"),
+        t: document.getElementById("t-input"),
+      };
+
+      let updateTimeout;
+      for (const input of Object.values(inputs)) {
+        input.addEventListener("input", (ev) => {
+          if (updateTimeout !== undefined) clearTimeout(updateTimeout);
+          updateTimeout = setTimeout(update, 500);
+        });
+      }
+
+      const chart = new Chart(document.getElementById("graph"), {
+        type: "line",
+        options: {
+          aspectRatio: 1,
+          scales: {
+            x: {
+              type: "linear",
+              display: true,
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: "t",
+              },
+            },
+            y: {
+              type: "linear",
+              display: true,
+              title: {
+                display: true,
+                text: "x",
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        },
+      });
+      update();
+
+      function* euler(f, h, x0, y0, n) {
+        let x = x0,
+          y = y0;
+        while (n-- >= 0) {
+          yield [x, y];
+          const result = f(x, y);
+          y = y.map((y, i) => y + h * result[i]);
+          x += h;
+        }
+      }
+
+      function* rungeKutta(f, h, x0, y0, n) {
+        let x = x0,
+          y = y0;
+        while (n-- >= 0) {
+          yield [x, y];
+
+          const k1 = f(x, y).map((y) => h * y);
+          const k2 = f(
+            x + 0.5 * h,
+            y.map((y, i) => y + 0.5 * k1[i])
+          ).map((y) => h * y);
+          const k3 = f(
+            x + 0.5 * h,
+            y.map((y, i) => y + 0.5 * k2[i])
+          ).map((y) => h * y);
+          const k4 = f(
+            x + h,
+            y.map((y, i) => y + k3[i])
+          ).map((y) => h * y);
+          y = y.map((y, i) => y + (k1[i] + 2 * k2[i] + 2 * k3[i] + k4[i]) / 6);
+          x += h;
+        }
+      }
+
+      function update() {
+        const values = Object.fromEntries(
+          Object.entries(inputs).map(([key, input]) => [
+            key,
+            input.valueAsNumber,
+          ])
+        );
+
+        if (Object.values(values).some(Number.isNaN)) return;
+
+        const f = (t, [x, v]) => [v, (-v * values.c - x * values.k) / values.m],
+          h = values.h,
+          x0 = 0,
+          y0 = [values.x0, values.v0],
+          n = values.t / values.h;
+
+        const eulerPoints = Array.from(
+          euler(f, h, x0, y0, n),
+          ([t, [x, v]]) => [t, x]
+        );
+
+        const rungeKuttaPoints = Array.from(
+          rungeKutta(f, h, x0, y0, n),
+          ([t, [x, v]]) => [t, x]
+        );
+
+        chart.data.datasets = [
+          {
+            data: eulerPoints,
+            borderColor: "#f68",
+          },
+          {
+            data: rungeKuttaPoints,
+            borderColor: "#86f",
+          },
+        ];
+        chart.update();
+      }
+    </script>
     <footer>
       <hr />
       <p>Вебсайт создан студентами <nobr>Колледжа Цифровых Технологий</nobr></p>
