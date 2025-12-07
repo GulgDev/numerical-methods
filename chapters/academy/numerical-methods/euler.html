@@ -145,31 +145,7 @@
           <p>
             Метод Эйлера является первым численным методом для решения
             обыкновенных дифференциальных уравнений, т. е. уравнений, которые
-            определяют, как быстро меняется величина (вместо того, чтобы
-            говорить: “пройденный путь
-            <math display="inline">
-              <mi>S</mi>
-              <mrow>
-                <mo>(</mo>
-                <mi>t</mi>
-                <mo>)</mo>
-              </mrow>
-            </math>
-            равен произведению скорости
-            <math display="inline"> <mi>v</mi> </math>
-            на время
-            <math display="inline"> <mi>t</mi> </math>”, мы говорим: “пройденный
-            путь
-            <math display="inline">
-              <mi>S</mi>
-              <mrow>
-                <mo>(</mo>
-                <mi>t</mi>
-                <mo>)</mo>
-              </mrow>
-            </math>
-            меняется со скоростью
-            <math display="inline"> <mi>v</mi> </math>”). Функция, определяющая
+            определяют, как быстро меняется величина. Функция, определяющая
             изменение величины называется производной.
           </p>
         </div>
@@ -314,175 +290,62 @@
             <mtext>,</mtext>
           </math>
           где <math display="inline"> <mi>i</mi> </math> – номер шага. На каждом
-          шаге мы также будем менять значение переменных
+          шаге мы также будем считать новые значения переменных
           <math display="inline"> <mi>x</mi> </math> и
-          <math display="inline"> <mi>v</mi> </math>.
-        </p>
-        <p>
-          Поскольку
-          <math display="block">
-            <mtable>
-              <mtr>
-                <mtd>
-                  <mrow> <mi>d</mi><mi>x</mi> </mrow> <mo>&approx;</mo>
-                  <mrow>
-                    <msub> <mi>x</mi> <mi>i</mi> </msub> <mo>-</mo>
-                    <msub>
-                      <mi>x</mi> <mrow> <mi>i</mi> <mo>-</mo> <mn>1</mn> </mrow>
-                    </msub>
-                  </mrow>
-                </mtd>
-                <mtd>
-                  <mtext
-                    >– изменение переменной x между предыдущим и текущим
-                    шагом,</mtext
-                  >
-                </mtd>
-              </mtr>
-              <mtr>
-                <mtd>
-                  <mrow> <mi>d</mi><mi>t</mi> </mrow> <mo>&approx;</mo>
-                  <mrow>
-                    <mi>h</mi>
-                  </mrow>
-                  <mtext>,</mtext>
-                </mtd>
-              </mtr>
-            </mtable>
-          </math>
-          то:
-          <div class="flex" style="align-items: baseline; justify-content: center;">
-            <math display="inline">
-              <mfrac>
-                <mrow>
-                  <mi>d</mi>
-                  <mi>x</mi>
-                </mrow>
-                <mrow>
-                  <mi>d</mi>
-                  <mi>t</mi>
-                </mrow>
-              </mfrac>
-              <mo>=</mo>
-              <mi>v</mi>
-            </math>
-            &Rightarrow;
-            <math display="inline">
-              <mrow>
-                <mi>d</mi>
-                <mi>x</mi>
-              </mrow>
-              <mo>=</mo>
-              <mrow>
-                <mi>v</mi>
-                <mo>&middot;</mo>
-                <mrow>
-                  <mi>d</mi>
-                  <mi>t</mi>
-                </mrow>
-              </mrow>
-            </math>
-            &Rightarrow;
-            <math display="inline">
-              <mrow>
-                <msub> <mi>x</mi> <mi>i</mi> </msub> <mo>-</mo>
-                <msub>
-                  <mi>x</mi> <mrow> <mi>i</mi> <mo>-</mo> <mn>1</mn> </mrow>
-                </msub>
-              </mrow>
-              <mo>=</mo>
-              <mrow>
-                <mi>v</mi>
-                <mo>&middot;</mo>
-                <mi>h</mi>
-              </mrow>
-            </math>
-            &Rightarrow;
-            <math display="inline">
-              <msub> <mi>x</mi> <mi>i</mi> </msub>
-              <mo>=</mo>
-              <mrow>
-                <msub>
-                  <mi>x</mi> <mrow> <mi>i</mi> <mo>-</mo> <mn>1</mn> </mrow>
-                </msub>
-                <mo>+</mo>
-                <mi>v</mi>
-                <mo>&middot;</mo>
-                <mi>h</mi>
-              </mrow>
-            </math>
-          </div>
-        </p>
-        <p>
-          Аналогично для переменной
           <math display="inline"> <mi>v</mi> </math>:
-          <div class="flex" style="align-items: baseline; justify-content: center;">
-            <math display="inline">
-              <mfrac>
-                <mrow>
-                  <mi>d</mi>
-                  <mi>v</mi>
-                </mrow>
-                <mrow>
-                  <mi>d</mi>
-                  <mi>t</mi>
-                </mrow>
-              </mfrac>
-              <mo>=</mo>
-              <mrow>
-                <mo>-</mo>
-                <mfrac>
-                  <mi>c</mi>
-                  <mi>m</mi>
-                </mfrac>
-                <mo>&InvisibleTimes;</mo>
-                <mi>v</mi>
-                <mo>-</mo>
-                <mfrac>
-                  <mi>k</mi>
-                  <mi>m</mi>
-                </mfrac>
-                <mo>&InvisibleTimes;</mo>
-                <mi>x</mi>
-              </mrow>
-            </math>
-            &Rightarrow;
-            <math display="inline">
+          <math display="block">
+            <msub> <mi>x</mi> <mi>i</mi> </msub>
+            <mo>=</mo>
+            <mrow>
+              <msub>
+                <mi>x</mi> <mrow> <mi>i</mi> <mo>-</mo> <mn>1</mn> </mrow>
+              </msub>
+              <mo>+</mo>
               <msub>
                 <mi>v</mi>
-                <mi>i</mi>
+                <mrow> <mi>i</mi> <mo>-</mo> <mn>1</mn> </mrow>
               </msub>
-              <mo>=</mo>
+              <mo>&middot;</mo>
+              <mi>h</mi>
+            </mrow>
+          </math>
+          <math display="block">
+            <msub>
+              <mi>v</mi>
+              <mi>i</mi>
+            </msub>
+            <mo>=</mo>
+            <mrow>
+              <msub>
+                <mi>v</mi>
+                <mrow> <mi>i</mi> <mo>-</mo> <mn>1</mn> </mrow>
+              </msub>
+              <mo>+</mo>
               <mrow>
-                <msub>
-                  <mi>v</mi>
-                  <mrow> <mi>i</mi> <mo>-</mo> <mn>1</mn> </mrow>
-                </msub>
-                <mo>+</mo>
+                <mo>(</mo>
                 <mrow>
-                  <mo>(</mo>
-                  <mrow>
-                    <mo>-</mo>
-                    <mfrac>
-                      <mi>c</mi>
-                      <mi>m</mi>
-                    </mfrac>
-                    <mo>&InvisibleTimes;</mo>
-                    <mi>v</mi>
-                    <mo>-</mo>
-                    <mfrac>
-                      <mi>k</mi>
-                      <mi>m</mi>
-                    </mfrac>
-                    <mo>&InvisibleTimes;</mo>
-                    <mi>x</mi>
-                  </mrow>
-                  <mo>)</mo>
+                  <mo>-</mo>
+                  <mfrac>
+                    <mi>c</mi>
+                    <mi>m</mi>
+                  </mfrac>
+                  <mo>&InvisibleTimes;</mo>
+                  <mi>v</mi>
+                  <mo>-</mo>
+                  <mfrac>
+                    <mi>k</mi>
+                    <mi>m</mi>
+                  </mfrac>
+                  <mo>&InvisibleTimes;</mo>
+                  <mi>x</mi>
                 </mrow>
-                <mo>&middot;</mo>
-                <mi>h</mi>
+                <mo>)</mo>
               </mrow>
-            </math>
+              <mo>&middot;</mo>
+              <mi>h</mi>
+            </mrow>
+          </math>
+        </p>
           </div>
         </p>
         <!-- TODO: Interactive math model -->
