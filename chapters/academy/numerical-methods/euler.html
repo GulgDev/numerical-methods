@@ -225,12 +225,10 @@
             <math display="inline"> <mi>x</mi> </math>), а скорость
             <math display="inline"> <mi>v</mi> </math> меняется в зависимости от
             массы <math display="inline"> <mi>m</mi> </math>, коэффициента
-            затухания <math display="inline"> <mi>c</mi> </math> (трение,
-            сопротивление воздуха) и жёсткости пружины
-            <math display="inline"> <mi>k</mi> </math> (насколько тяжело пружина
-            растягивается), а также от текущей скорости
-            <math display="inline"> <mi>v</mi> </math> и координаты
-            <math display="inline"> <mi>x</mi> </math>.
+            затухания <math display="inline"> <mi>c</mi> </math> и жёсткости
+            пружины <math display="inline"> <mi>k</mi> </math>, а также от
+            текущей скорости <math display="inline"> <mi>v</mi> </math> и
+            координаты <math display="inline"> <mi>x</mi> </math>.
           </p>
         </div>
         <p>
@@ -330,14 +328,20 @@
                     <mi>m</mi>
                   </mfrac>
                   <mo>&InvisibleTimes;</mo>
+                  <msub>
                   <mi>v</mi>
+                    <mrow> <mi>i</mi> <mo>-</mo> <mn>1</mn> </mrow>
+                  </msub>
                   <mo>-</mo>
                   <mfrac>
                     <mi>k</mi>
                     <mi>m</mi>
                   </mfrac>
                   <mo>&InvisibleTimes;</mo>
-                  <mi>x</mi>
+                  <msub>
+                    <mi>x</mi>
+                    <mrow> <mi>i</mi> <mo>-</mo> <mn>1</mn> </mrow>
+                  </msub>
                 </mrow>
                 <mo>)</mo>
               </mrow>
