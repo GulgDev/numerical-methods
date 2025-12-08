@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="/static/img/icon.svg"
+      sizes="any"
+      type="image/svg+xml"
+    />
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/static/style/index.css" />
+
+    <title>Леонид Канторович • Численные методы • Академия наук</title>
+  </head>
+  <body>
+    <div id="header-container">
+      <header>
+        <div>
+          <a href="/" draggable="false">
+            <img
+              src="/static/img/logo.svg"
+              height="32"
+              alt="Логотип"
+              draggable="false"
+            />
+          </a>
+        </div>
+        <div>
+          <h1>Леонид Канторович</h1>
+        </div>
+        <div>
+          <button id="nav-toggle" class="seamless" popovertarget="nav">
+            <img
+              src="/static/img/menu.svg"
+              height="32"
+              alt="Меню"
+              draggable="false"
+            />
+          </button>
+        </div>
+      </header>
+    </div>
+    <nav id="nav" popover>
+      <menu>
+        <li><a href="/">Главная</a></li>
+        <li>
+          <details>
+            <summary>Список глав</summary>
+            <menu>
+              <details name="nav-chapter">
+                <summary>Начало пути</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/beginning/ancient.html">Древний мир</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/middle-ages.html"
+                      >Средневековье</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/new-age.html">Новое время</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Академия наук</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/academy/foundation.html">Основание</a>
+                  </li>
+                  <li>
+                    <a
+                      aria-current="page"
+                      href="/chapters/academy/numerical-methods/index.html"
+                      >Численные методы</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/academy/contribution.html">Вклад</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Преемственность</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/finale/legacy.html">Наследие Академии</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/modern.html">Современность</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/conclusion.html">Заключение</a>
+                  </li>
+                </menu>
+              </details>
+            </menu>
+          </details>
+        </li>
+        <li><a href="/about.html">О нас</a></li>
+      </menu>
+    </nav>
+    <main>
+      <article>
+        <h2>Леонид Канторович</h2>
+        <div class="frame">
+          <p>
+            Леонид Витальевич Канторович — советский математик и экономист,
+            лауреат Нобелевской премии по экономике 1975 года «за вклад в теорию
+            оптимального распределения ресурсов».
+          </p>
+        </div>
+        <div class="flex">
+          <div style="flex: 200px 1 2">
+            <img class="rounded" src="/static/img/kantorovich.png" />
+          </div>
+          <p style="flex: 50% 2 2">
+            Леонид Канторович родился 19 января 1912 года в русской еврейской
+            семье врачей, незадолго до того перебравшихся в Петербург из Вильны.
+            С детства имеющий выдающиеся математические способности мальчик в
+            1926 году в возрасте четырнадцати лет поступил в Ленинградский
+            университет, окончив его в 1930 году.
+          </p>
+        </div>
+        <p>
+          В 1964 году избран академиком АН СССР. За разработку метода линейного
+          программирования и экономических моделей удостоен в 1965 году
+          Ленинской премии.
+        </p>
+      </article>
+      <article>
+        <h2>Линейное программирование</h2>
+        <div class="info">
+          <p>
+            Линейное программирование позволяет решать задачи максимизации
+            какого-либо значения (например, прибыли).
+          </p>
+        </div>
+        <p>
+          Допустим у нас есть фабрика по производству сока: яблочного и
+          апельсинового. На фабрике имеются ограниченные ресурсы: запас воды и
+          время работы линий. Нам необходимо максимизировать прибыль P, решив,
+          сколько яблочного и апельсинового сока фабрика будет производить в
+          день, не выходя при этом за рамки имеющихся ограничений. Это задача
+          линейного программирования (не путать с компьютерным
+          программированием!), потому что целевая функция (прибыль) и
+          ограничения (ресурсы) выражаются линейными уравнениями.
+        </p>
+        <div class="frame">
+          Если мы построим графики ограничений, то каждое неравенство поделит
+          плоскость на две полуплоскости, а их пересечение (решение системы
+          неравенств) образует многоугольник (в нашем случае — четырёхугольник).
+          Ключевое открытие Канторовича заключается в том, что максимальное
+          значение линейной функции (прибыли P) всегда достигается в одной из
+          вершин многоугольника, образуемого областью допустимых решений.
+        </div>
+      </article>
+    </main>
+    <footer>
+      <hr />
+      <p>Вебсайт создан студентами <nobr>Колледжа Цифровых Технологий</nobr></p>
+    </footer>
+  </body>
+</html>
