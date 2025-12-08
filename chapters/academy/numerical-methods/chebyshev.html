@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="/static/img/icon.svg"
+      sizes="any"
+      type="image/svg+xml"
+    />
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/static/style/index.css" />
+
+    <title>Пафнутий Чебышёв • Численные методы • Академия наук</title>
+  </head>
+  <body>
+    <div id="header-container">
+      <header>
+        <div>
+          <a href="/" draggable="false">
+            <img
+              src="/static/img/logo.svg"
+              height="32"
+              alt="Логотип"
+              draggable="false"
+            />
+          </a>
+        </div>
+        <div>
+          <h1>Пафнутий Чебышёв</h1>
+        </div>
+        <div>
+          <button id="nav-toggle" class="seamless" popovertarget="nav">
+            <img
+              src="/static/img/menu.svg"
+              height="32"
+              alt="Меню"
+              draggable="false"
+            />
+          </button>
+        </div>
+      </header>
+    </div>
+    <nav id="nav" popover>
+      <menu>
+        <li><a href="/">Главная</a></li>
+        <li>
+          <details>
+            <summary>Список глав</summary>
+            <menu>
+              <details name="nav-chapter">
+                <summary>Начало пути</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/beginning/ancient.html">Древний мир</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/middle-ages.html"
+                      >Средневековье</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/new-age.html">Новое время</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Академия наук</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/academy/foundation.html">Основание</a>
+                  </li>
+                  <li>
+                    <a
+                      aria-current="page"
+                      href="/chapters/academy/numerical-methods/index.html"
+                      >Численные методы</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/academy/contribution.html">Вклад</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Преемственность</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/finale/legacy.html">Наследие Академии</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/modern.html">Современность</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/conclusion.html">Заключение</a>
+                  </li>
+                </menu>
+              </details>
+            </menu>
+          </details>
+        </li>
+        <li><a href="/about.html">О нас</a></li>
+      </menu>
+    </nav>
+    <main>
+      <article>
+        <h2>Пафнутий Чебышёв</h2>
+        <div class="frame">
+          <p>
+            Пафнутий Львович Чебышёв — русский математик и механик,
+            основоположник петербургской математической школы, академик
+            Петербургской академии наук и ещё 24 академий мира, один из
+            величайших русских математиков XIX века.
+          </p>
+        </div>
+        <div class="flex">
+          <div style="flex: 200px 1 2">
+            <img class="rounded" src="/static/img/chebyshev.png" />
+          </div>
+          <p style="flex: 50% 2 2">
+            Чебышёв родился 16 мая 1821 года в селе Окатово Боровского уезда
+            Калужской губернии в семье богатого землевладельца, представителя
+            старинного русского дворянского рода Льва Павловича Чебышёва.
+            Первоначальное воспитание и образование получил дома: грамоте его
+            обучила мать Аграфена Ивановна, арифметике и французскому языку —
+            двоюродная сестра. Одним из детских увлечений будущего учёного было
+            изучение механизмов игрушек и автоматов, причём он и сам придумывал
+            и мастерил их. Этот интерес к механизмам сохранялся у Чебышёва и в
+            зрелые годы.
+          </p>
+        </div>
+        <p>
+          В 1853 году Чебышёв был представлен к избранию, а позже избран в
+          адъюнкты Петербургской академии наук, а в 1856 году стал
+          экстраординарным академиком. В 1858 году, в том числе в связи с его
+          работами по теории приближения функций, многими выдающимися
+          академиками было подписано представление к избранию Чебышёва
+          ординарным академиком, что и произошло в следующем году.
+        </p>
+      </article>
+      <article>
+        <h2>Чебышёвское приближение</h2>
+        <div class="info">
+          <p>
+            Чебышёв положил начало теории приближений в 1857 г., когда он
+            опубликовал статью «Теория механизмов, известных под названием
+            параллелограммов».
+          </p>
+        </div>
+        <p>
+          Рассмотрим, к примеру, маятник, движение которого задаётся уравнением:
+          <math display="block">
+            <mrow>
+              <mi>x</mi> <mrow> <mo>(</mo> <mi>t</mi> <mo>)</mo> </mrow>
+              <mo>=</mo>
+              <mrow>
+                <mi>A</mi> <mo>&middot;</mo>
+                <msup>
+                  <mi>e</mi>
+                  <mrow>
+                    <mo>-</mo> <mi>&beta;</mi> <mo>&InvisibleTimes;</mo>
+                    <mi>t</mi>
+                  </mrow>
+                </msup>
+                <mo>&middot;</mo> <mi>cos</mi>
+                <mrow>
+                  <mo>(</mo> <mi>&omega;</mi> <mo>&InvisibleTimes;</mo>
+                  <mi>t</mi> <mo>+</mo> <mi>&phi;</mi> <mo>)</mo>
+                </mrow>
+              </mrow>
+            </mrow>
+            <mtext>,</mtext>
+          </math>
+          где:<br />
+          <math display="inline"><mi>A</mi></math> – амплитуда,<br />
+          <math display="inline"><mi>&beta;</mi></math> – коэффициент
+          затухания,<br />
+          <math display="inline"><mi>&omega;</mi></math> – частота колебаний,<br />
+          <math display="inline"><mi>&phi;</mi></math> – начальная фаза.
+        </p>
+        <p>
+          Чебышёв установил, что многочлен степени n будет многочленом
+          наилучшего равномерного приближения для функции, если найдутся n+2
+          точек, в которых разность между ней и полиномом на приближаемом
+          отрезке принимает наибольшее по модулю значение, а её знаки чередуются
+          (эти точки называются чебышёвским альтернансом). На этой теореме
+          основан эффективный численный метод для нахождения многочленов
+          наилучшего приближения – алгоритм Ремеза.
+        </p>
+      </article>
+    </main>
+    <footer>
+      <hr />
+      <p>Вебсайт создан студентами <nobr>Колледжа Цифровых Технологий</nobr></p>
+    </footer>
+  </body>
+</html>
