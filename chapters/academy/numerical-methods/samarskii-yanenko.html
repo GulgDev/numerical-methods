@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="/static/img/icon.svg"
+      sizes="any"
+      type="image/svg+xml"
+    />
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/static/style/index.css" />
+
+    <title>Самарский и Яненко • Численные методы • Академия наук</title>
+  </head>
+  <body>
+    <div id="header-container">
+      <header>
+        <div>
+          <a href="/" draggable="false">
+            <img
+              src="/static/img/logo.svg"
+              height="32"
+              alt="Логотип"
+              draggable="false"
+            />
+          </a>
+        </div>
+        <div>
+          <h1>Самарский и Яненко</h1>
+        </div>
+        <div>
+          <button id="nav-toggle" class="seamless" popovertarget="nav">
+            <img
+              src="/static/img/menu.svg"
+              height="32"
+              alt="Меню"
+              draggable="false"
+            />
+          </button>
+        </div>
+      </header>
+    </div>
+    <nav id="nav" popover>
+      <menu>
+        <li><a href="/">Главная</a></li>
+        <li>
+          <details>
+            <summary>Список глав</summary>
+            <menu>
+              <details name="nav-chapter">
+                <summary>Начало пути</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/beginning/ancient.html">Древний мир</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/middle-ages.html"
+                      >Средневековье</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/new-age.html">Новое время</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Академия наук</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/academy/foundation.html">Основание</a>
+                  </li>
+                  <li>
+                    <a
+                      aria-current="page"
+                      href="/chapters/academy/numerical-methods/index.html"
+                      >Численные методы</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/academy/contribution.html">Вклад</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Преемственность</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/finale/legacy.html">Наследие Академии</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/modern.html">Современность</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/conclusion.html">Заключение</a>
+                  </li>
+                </menu>
+              </details>
+            </menu>
+          </details>
+        </li>
+        <li><a href="/about.html">О нас</a></li>
+      </menu>
+    </nav>
+    <main>
+      <article id="samarskii">
+        <h2>Александр Самарский</h2>
+        <div class="frame">
+          <p>
+            Александр Андреевич Самарский — советский и российский математик,
+            герой Социалистического Труда.
+          </p>
+        </div>
+        <div class="flex">
+          <div style="flex: 200px 1 2">
+            <img class="rounded" src="/static/img/samarskii.png" />
+          </div>
+          <p style="flex: 50% 2 2">
+            Самарский родился 19 февраля 1919 года в хуторе Свыстуны
+            Екатеринославской губернии в крестьянской семье. Он рано остался без
+            родителей и с пяти лет его воспитывали старшие сёстры.
+          </p>
+        </div>
+        <p>
+          В 1966 году был избран членом-корреспондентом АН СССР, а в 1976 году —
+          академиком.
+        </p>
+
+        <article>
+          <h3>Теория разностных схем</h3>
+          <p>
+            Рассмотрим пружинный маятник, выразив его движение уравнением
+            <math display="block">
+              <mrow>
+                <mi>m</mi> <mo>&InvisibleTimes;</mo>
+                <mrow> <mi>x</mi> <mo>&Prime;</mo> </mrow>
+                <mo>+</mo>
+                <mi>c</mi> <mo>&InvisibleTimes;</mo>
+                <mrow> <mi>x</mi> <mo>&prime;</mo> </mrow>
+                <mo>+</mo>
+                <mi>k</mi> <mo>&InvisibleTimes;</mo>
+                <mi>x</mi>
+              </mrow>
+              <mo>=</mo>
+              <mn>0</mn>
+              <mtext>,</mtext>
+            </math>
+            где: <br />
+            <math display="inline"> <mi>x</mi> </math> – отклонение маятника от
+            положения равновесия, <br />
+            <math display="inline">
+              <mrow> <mi>x</mi> <mo>&prime;</mo> </mrow>
+            </math>
+            – скорость (первая производная), <br />
+            <math display="inline">
+              <mrow> <mi>x</mi> <mo>&Prime;</mo> </mrow>
+            </math>
+            – ускорение (вторая производная), <br />
+            <math display="inline"> <mi>m</mi> </math> – масса, <br />
+            <math display="inline"> <mi>c</mi> </math> – коэффициент затухания,
+            <br />
+            <math display="inline"> <mi>k</mi> </math> – жёсткость пружины.
+          </p>
+          <p>
+            Допустим, требуется зная начальное положение и скорость, найти, как
+            <math display="inline"> <mi>x</mi> </math> меняется со временем (т.
+            е. получить возможность моделировать движение маятника).
+          </p>
+          <div class="info">
+            <p>
+              Уравнение является непрерывным, т. е. точно описывает, как маятник
+              должен двигаться в любой момент времени. Но компьютеры не умеют
+              работать с уравнениями в таком виде, поэтому сначала необходимо
+              его дискретизировать. С этим помогут разностные схемы: с помощью
+              них можно вычислить положение маятника на следующем шаге, зная его
+              положение на нескольких предыдущих шагах.
+            </p>
+          </div>
+          <p>
+            Для того чтобы создать схему для нашего маятника, заменим
+            производные на разности:
+            <math display="block">
+              <mtable>
+                <mtr>
+                  <mtd>
+                    <mrow> <mi>x</mi> <mo>&prime;</mo> </mrow>
+                    <mo>=</mo>
+                    <mfrac>
+                      <mrow>
+                        <msub>
+                          <mi>x</mi>
+                          <mrow> <mi>n</mi> <mo>+</mo> <mn>1</mn> </mrow>
+                        </msub>
+                        <mo>-</mo>
+                        <msub>
+                          <mi>x</mi>
+                          <mrow> <mi>n</mi> <mo>-</mo> <mn>1</mn> </mrow>
+                        </msub>
+                      </mrow>
+                      <mrow>
+                        <mn>2</mn>
+                        <mo>&InvisibleTimes;</mo>
+                        <mrow>
+                          <mi>&Delta;</mi>
+                          <mi>t</mi>
+                        </mrow>
+                      </mrow>
+                    </mfrac>
+                    <mtext>,</mtext>
+                  </mtd>
+                </mtr>
+                <mtr>
+                  <mtd>
+                    <mrow> <mi>x</mi> <mo>&Prime;</mo> </mrow>
+                    <mo>=</mo>
+                    <mfrac>
+                      <mrow>
+                        <msub>
+                          <mi>x</mi>
+                          <mrow> <mi>n</mi> <mo>+</mo> <mn>1</mn> </mrow>
+                        </msub>
+                        <mo>-</mo>
+                        <mn>2</mn>
+                        <mo>&InvisibleTimes;</mo>
+                        <msub>
+                          <mi>x</mi>
+                          <mi>n</mi>
+                        </msub>
+                        <mo>+</mo>
+                        <msub>
+                          <mi>x</mi>
+                          <mrow> <mi>n</mi> <mo>-</mo> <mn>1</mn> </mrow>
+                        </msub>
+                      </mrow>
+                      <msup>
+                        <mrow>
+                          <mo>(</mo>
+                          <mi>&Delta;</mi>
+                          <mi>t</mi>
+                          <mo>)</mo>
+                        </mrow>
+                        <mn>2</mn>
+                      </msup>
+                    </mfrac>
+                    <mtext>.</mtext>
+                  </mtd>
+                </mtr>
+              </mtable>
+            </math>
+            Подставив эти выражения в исходное уравнение, можно получить формулу
+            для вычисления
+            <math display="inline">
+              <mrow>
+                <msub>
+                  <mi>x</mi>
+                  <mrow>
+                    <mi>n</mi>
+                    <mo>+</mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+              </mrow>
+              <mtext>.</mtext>
+            </math>
+          </p>
+          <div class="frame">
+            <p>
+              Хотя Самарский не изобрёл разностные схемы, он внёс огромный вклад
+              в их систематизацию своей теорией операторно-разностных схем,
+              которая помогает создавать схемы по определённым правилам и
+              изучать их свойства.
+            </p>
+          </div>
+        </article>
+      </article>
+      <article id="yanenko">
+        <h2>Николай Яненко</h2>
+        <div class="frame">
+          <p>
+            Николай Николаевич Яненко — выдающийся советский математик, геометр
+            и механик, герой Социалистического Труда.
+          </p>
+        </div>
+        <div class="flex">
+          <div style="flex: 200px 1 2">
+            <img class="rounded" src="/static/img/yanenko.png" />
+          </div>
+          <p style="flex: 50% 2 2">
+            Он родился в семье члена Российской коммунистической партии
+            (большевиков), бухгалтера Николая Павловича. В 1939 году после
+            окончания с золотой медалью средней школы в Новосибирске Николай
+            Николаевич поступил на физико-математический факультет Томского
+            государственного университета, который с отличием окончил в 1942
+            году, получив специальность «учитель математики».
+          </p>
+        </div>
+        <p>
+          В 1966 году избран членом-корреспондентом АН СССР, а в 1970 году —
+          действительным членом АН СССР по отделению механики и процессов
+          управления.
+        </p>
+        <article>
+          <h3>Метод дробных шагов</h3>
+          <p>
+            Метод дробных шагов позволяет строить устойчивые разностные схемы
+            путём разбиения многомерной задачи на множество одномерных, каждая
+            из которых соответствует части одного шагу. Например, вместо
+            уравнения
+            <math display="inline">
+              <mrow>
+                <mi>m</mi> <mo>&InvisibleTimes;</mo>
+                <mrow> <mi>x</mi> <mo>&Prime;</mo> </mrow>
+                <mo>+</mo>
+                <mi>c</mi> <mo>&InvisibleTimes;</mo>
+                <mrow> <mi>x</mi> <mo>&prime;</mo> </mrow>
+                <mo>+</mo>
+                <mi>k</mi> <mo>&InvisibleTimes;</mo>
+                <mi>x</mi>
+              </mrow>
+              <mo>=</mo>
+              <mn>0</mn>
+              <mtext>,</mtext>
+            </math>
+            решать на одной половине шага уравнение
+            <math display="inline">
+              <mrow>
+                <mi>m</mi> <mo>&InvisibleTimes;</mo>
+                <mrow> <mi>x</mi> <mo>&Prime;</mo> </mrow>
+                <mo>+</mo>
+                <mi>k</mi> <mo>&InvisibleTimes;</mo>
+                <mi>x</mi>
+              </mrow>
+              <mo>=</mo>
+              <mn>0</mn>
+              <mtext>,</mtext>
+            </math>
+            а на другой половине –
+            <math display="inline">
+              <mrow>
+                <mi>c</mi> <mo>&InvisibleTimes;</mo>
+                <mrow> <mi>x</mi> <mo>&prime;</mo> </mrow>
+              </mrow>
+              <mo>=</mo>
+              <mn>0</mn>
+              <mtext>.</mtext>
+            </math>
+          </p>
+        </article>
+      </article>
+    </main>
+    <footer>
+      <hr />
+      <p>Вебсайт создан студентами <nobr>Колледжа Цифровых Технологий</nobr></p>
+    </footer>
+  </body>
+</html>
