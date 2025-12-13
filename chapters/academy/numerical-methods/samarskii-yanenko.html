@@ -183,7 +183,7 @@
             Подставив получившиеся выражения в исходное уравнение, можно вывести
             формулу для вычисления следующих значений
             <math display="inline">
-                  <mi>x</mi>
+              <mi>x</mi>
               <mtext>.</mtext>
             </math>
           </p>
@@ -271,7 +271,202 @@
           </p>
         </article>
       </article>
+      <article>
+        <h2>Пример</h2>
+        <div class="flex">
+          <div
+            style="
+              flex: min-content;
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+            "
+          >
+            <fieldset>
+              <legend>Параметры маятника</legend>
+
+              <label for="c-input">
+                <math display="inline"> <mi>c</mi> </math>
+                =
+              </label>
+              <input id="c-input" type="number" value="2" min="0" step="0.1" />
+
+              <label for="m-input">
+                <math display="inline"> <mi>m</mi> </math>
+                =
+              </label>
+              <input id="m-input" type="number" value="1" />
+
+              <label for="k-input">
+                <math display="inline"> <mi>k</mi> </math>
+                =
+              </label>
+              <input id="k-input" type="number" value="10" min="1" step="1" />
+            </fieldset>
+
+            <fieldset style="grid-row: span 2">
+              <legend>Значения</legend>
+
+              <label for="x''-input">
+                <math display="inline"> <mi>x</mi> <mo>&Prime;</mo> </math>
+                =
+              </label>
+              <input id="x''-input" type="number" value="0" />
+
+              <label for="x'-input">
+                <math display="inline"> <mi>x</mi> <mo>&prime;</mo> </math>
+                =
+              </label>
+              <input id="x'-input" type="number" value="0" />
+
+              <label for="x-input">
+                <math display="inline"> <mi>x</mi> </math>
+                =
+              </label>
+              <input id="x-input" type="number" value="1" />
+
+              <label for="t-input">
+                <math display="inline"> <mi>t</mi> </math>
+                =
+              </label>
+              <input id="t-input" type="number" value="0" min="0" />
+            </fieldset>
+
+            <fieldset>
+              <legend>Шаг</legend>
+
+              <label for="dt-input">
+                <math display="inline"> <mi>&Delta;</mi> <mi>t</mi> </math>
+                =
+              </label>
+              <input
+                id="dt-input"
+                type="number"
+                value="0.1"
+                min="0"
+                step="0.01"
+              />
+            </fieldset>
+            <div style="grid-column: span 2">
+              <div>
+                <input id="fsm-checkbox" type="checkbox" />
+                <label for="fsm-checkbox">Метод дробных шагов</label>
+              </div>
+              <div id="fsm-info">
+                <div>
+                  Сейчас считаем:
+                  <span id="fsm-current"></span>
+                </div>
+              </div>
+            </div>
+            <div style="grid-column: span 2">
+              <button id="next-step">Следующий шаг</button>
+            </div>
+          </div>
+          <div style="flex: 200px 1 2">
+            <canvas id="graph" style="max-width: 100%" />
+          </div>
+        </div>
+      </article>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const inputs = {
+        c: document.getElementById("c-input"),
+        m: document.getElementById("m-input"),
+        k: document.getElementById("k-input"),
+        a: document.getElementById("x''-input"),
+        v: document.getElementById("x'-input"),
+        x: document.getElementById("x-input"),
+        t: document.getElementById("t-input"),
+        dt: document.getElementById("dt-input"),
+      };
+
+      document.getElementById("next-step").addEventListener("click", step);
+
+      for (const input of Object.values(inputs)) {
+        input.addEventListener("input", (ev) => {
+          clear();
+        });
+      }
+
+      const chart = new Chart(document.getElementById("graph"), {
+        type: "line",
+        options: {
+          aspectRatio: 1,
+          scales: {
+            x: {
+              type: "linear",
+              display: true,
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: "t",
+              },
+            },
+            y: {
+              type: "linear",
+              display: true,
+              title: {
+                display: true,
+                text: "x",
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        },
+      });
+      clear();
+
+      function clear() {
+        chart.data.datasets = [
+          {
+            data: [],
+            borderColor: "#f68",
+          },
+        ];
+        chart.update();
+      }
+
+      function round(x, s) {
+        const y = 1 / s;
+        return Math.round(x * y) / y;
+      }
+
+      function step() {
+        const values = Object.fromEntries(
+          Object.entries(inputs).map(([key, input]) => [
+            key,
+            input.valueAsNumber,
+          ])
+        );
+
+        if (Object.values(values).some(Number.isNaN)) return;
+
+        // TODO: separate actual variable values from input values and synchronize them using input events & Number.prototype.toFixed
+        inputs.a.valueAsNumber = round(
+          -(values.c / values.m) * values.v - (values.k / values.m) * values.x,
+          0.01
+        );
+        inputs.v.valueAsNumber = round(
+          values.v + values.dt * inputs.a.valueAsNumber,
+          0.01
+        );
+        inputs.x.valueAsNumber = round(values.x + values.dt * values.v, 0.01);
+        inputs.t.valueAsNumber = round(
+          inputs.t.valueAsNumber + values.dt,
+          values.dt
+        );
+
+        // TODO: fractional steps method
+
+        chart.data.datasets[0].data.push([values.t, inputs.x.valueAsNumber]);
+        chart.update();
+      }
+    </script>
     <footer>
       <hr />
       <p>Вебсайт создан студентами <nobr>Колледжа Цифровых Технологий</nobr></p>
