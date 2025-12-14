@@ -124,117 +124,130 @@
             вычислений.
           </p>
         </div>
-        <div id="map">
-          <div class="map-item" id="china">
-            <div class="map-info">
-              <a class="map-info-cross" href="#" draggable="false">&#x1F5D9;</a>
-              <h3>Древний Китай</h3>
-              <p>
-                В Китае использовался метод ложных положений, а также применялся
-                метод фан-чэн, аналогичный методу Гаусса.
-              </p>
-              <p>
-                Также использовался метод, известный как "квадратный корень" или
-                "метод девяти глав". Этот метод включал в себя решения различных
-                уравнений, в том числе и систем линейных уравнений.
-              </p>
-            </div>
-            <a href="#china" draggable="false">
-              <img
-                src="/static/img/map-china.svg"
-                alt="Древний Китай"
-                draggable="false"
-              />
-            </a>
+        <div id="map-container">
+          <div class="map-info" id="china-info" popover>
+            <button class="map-info-close" popovertarget="china-info">
+              <img src="/static/img/close.svg" height="12" />
+            </button>
+            <h3>Древний Китай</h3>
+            <p>
+              В Китае использовался метод ложных положений, а также применялся
+              метод фан-чэн, аналогичный методу Гаусса.
+            </p>
+            <p>
+              Также использовался метод, известный как "квадратный корень" или
+              "метод девяти глав". Этот метод включал в себя решения различных
+              уравнений, в том числе и систем линейных уравнений.
+            </p>
           </div>
-          <div class="map-item" id="greece">
-            <div class="map-info">
-              <a class="map-info-cross" href="#" draggable="false">&#x1F5D9;</a>
-              <h3>Древняя Греция</h3>
-              <p>
-                Архимед разработал метод исчерпывания, который предвосхитил идеи
-                интегрального исчисления. Этот метод позволял определять площади
-                и объемы 7 сложных фигур путем разбиения их на бесконечно малые
-                части. В своих работах он также использовал приближенные
-                значения для корней квадратных уравнений и разработал методы для
-                вычисления числа π.
-              </p>
-            </div>
-            <a href="#greece" draggable="false">
-              <img
-                src="/static/img/map-greece.svg"
-                alt="Древняя Греция"
-                draggable="false"
-              />
-            </a>
+          <div class="map-info" id="greece-info" popover>
+            <button class="map-info-close" popovertarget="greece-info">
+              <img src="/static/img/close.svg" height="12" />
+            </button>
+            <h3>Древняя Греция</h3>
+            <p>
+              Архимед разработал метод исчерпывания, который предвосхитил идеи
+              интегрального исчисления. Этот метод позволял определять площади и
+              объемы 7 сложных фигур путем разбиения их на бесконечно малые
+              части. В своих работах он также использовал приближенные значения
+              для корней квадратных уравнений и разработал методы для вычисления
+              числа π.
+            </p>
           </div>
-          <div class="map-item" id="egypt">
-            <div class="map-info">
-              <a class="map-info-cross" href="#" draggable="false">&#x1F5D9;</a>
-              <h3>Древний Египет</h3>
-              <p>
-                В древнем Египте для нахождения площади круга разработали особый
-                численный метод. Также использовался итерационный метод.
-              </p>
-            </div>
-            <a href="#egypt" draggable="false">
-              <img
-                src="/static/img/map-egypt.svg"
-                alt="Древний Египет"
-                draggable="false"
-              />
-            </a>
+          <div class="map-info" id="egypt-info" popover>
+            <button class="map-info-close" popovertarget="egypt-info">
+              <img src="/static/img/close.svg" height="12" />
+            </button>
+            <h3>Древний Египет</h3>
+            <p>
+              В древнем Египте для нахождения площади круга разработали особый
+              численный метод. Также использовался итерационный метод.
+            </p>
           </div>
-          <div class="map-item" id="india">
-            <div class="map-info">
-              <a class="map-info-cross" href="#" draggable="false">&#x1F5D9;</a>
-              <h3>Древняя Индия</h3>
-              <p>
-                В Индии решали системы линейных уравнений методом пропорций.
-                Использовался метод рассеивания, а также вычисляли объемы
-                некоторых тел.
-              </p>
-            </div>
-            <a href="#india" draggable="false">
-              <img
-                src="/static/img/map-india.svg"
-                alt="Древняя Индия"
-                draggable="false"
-              />
-            </a>
+          <div class="map-info" id="india-info" popover>
+            <button class="map-info-close" popovertarget="india-info">
+              <img src="/static/img/close.svg" height="12" />
+            </button>
+            <h3>Древняя Индия</h3>
+            <p>
+              В Индии решали системы линейных уравнений методом пропорций.
+              Использовался метод рассеивания, а также вычисляли объемы
+              некоторых тел.
+            </p>
           </div>
-          <div class="map-item" id="babylonia">
-            <div class="map-info">
-              <a class="map-info-cross" href="#" draggable="false">&#x1F5D9;</a>
-              <h3>Вавилонские математики</h3>
-              <p>
-                Вавилонские математики (II тысячелетие до н. э.) разработали для
-                извлечения квадратного корня особый численный метод.
-              </p>
-              <p>
-                Вавилонская глиняная табличка YBC 7289 из вавилонской коллекции
-                Йельского университета была создана между 1800 и 1600 годами до
-                н. э. и демонстрирует
-                <math display="inline">
+          <div class="map-info" id="babylonia-info" popover>
+            <button class="map-info-close" popovertarget="babylonia-info">
+              <img src="/static/img/close.svg" height="12" />
+            </button>
+            <h3>Вавилонские математики</h3>
+            <p>
+              Вавилонские математики (II тысячелетие до н. э.) разработали для
+              извлечения квадратного корня особый численный метод.
+            </p>
+            <p>
+              Вавилонская глиняная табличка YBC 7289 из вавилонской коллекции
+              Йельского университета была создана между 1800 и 1600 годами до н.
+              э. и демонстрирует
+              <math display="inline">
+                <msqrt><mi>2</mi></msqrt>
+              </math>
+              и
+              <math display="inline">
+                <mfrac>
                   <msqrt><mi>2</mi></msqrt>
-                </math>
-                и
-                <math display="inline">
-                  <mfrac>
-                    <msqrt><mi>2</mi></msqrt>
-                    <mi>2</mi>
-                  </mfrac>
-                </math>
-                в шестидесятиричной системе счисления.
-              </p>
+                  <mi>2</mi>
+                </mfrac>
+              </math>
+              в шестидесятиричной системе счисления.
+            </p>
+          </div>
+
+          <div id="map">
+            <div class="map-item" id="map-china">
+              <button class="seamless" popovertarget="china-info">
+                <img
+                  src="/static/img/map-china.svg"
+                  alt="Древний Китай"
+                  draggable="false"
+                />
+              </button>
             </div>
-            <a href="#babylonia" draggable="false">
-              <img
-                src="/static/img/map-babylonia.svg"
-                alt="Вавилонское Царство"
-                draggable="false"
-              />
-            </a>
+            <div class="map-item" id="map-greece">
+              <button class="seamless" popovertarget="greece-info">
+                <img
+                  src="/static/img/map-greece.svg"
+                  alt="Древняя Греция"
+                  draggable="false"
+                />
+              </button>
+            </div>
+            <div class="map-item" id="map-egypt">
+              <button class="seamless" popovertarget="egypt-info">
+                <img
+                  src="/static/img/map-egypt.svg"
+                  alt="Древний Египет"
+                  draggable="false"
+                />
+              </button>
+            </div>
+            <div class="map-item" id="map-india">
+              <button class="seamless" popovertarget="india-info">
+                <img
+                  src="/static/img/map-india.svg"
+                  alt="Древняя Индия"
+                  draggable="false"
+                />
+              </button>
+            </div>
+            <div class="map-item" id="map-babylonia">
+              <button class="seamless" popovertarget="babylonia-info">
+                <img
+                  src="/static/img/map-babylonia.svg"
+                  alt="Вавилонское Царство"
+                  draggable="false"
+                />
+              </button>
+            </div>
           </div>
         </div>
       </article>
