@@ -123,6 +123,18 @@ input:focus {
   color: #eee;
 }
 
+fieldset {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: 0.2em 0.4em;
+}
+
+fieldset input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .flex {
   display: flex;
   flex-wrap: wrap;
