@@ -46,6 +46,7 @@ main {
 footer {
   margin: auto;
   margin-top: 8rem;
+  margin-bottom: 0;
   max-width: 40vw;
   text-align: center;
 }

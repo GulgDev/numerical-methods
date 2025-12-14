@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="/static/img/icon.svg"
+      sizes="any"
+      type="image/svg+xml"
+    />
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/static/style/index.css" />
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="modern.css" />
+
+    <title>Современность • Преемственность</title>
+  </head>
+  <body>
+    <div id="header-container">
+      <header>
+        <div>
+          <a href="/" draggable="false">
+            <img
+              src="/static/img/logo.svg"
+              height="32"
+              alt="Логотип"
+              draggable="false"
+            />
+          </a>
+        </div>
+        <div>
+          <h1>Современность</h1>
+        </div>
+        <div>
+          <button id="nav-toggle" class="seamless" popovertarget="nav">
+            <img
+              src="/static/img/menu.svg"
+              height="32"
+              alt="Меню"
+              draggable="false"
+            />
+          </button>
+        </div>
+      </header>
+    </div>
+    <nav id="nav" popover>
+      <menu>
+        <li><a href="/">Главная</a></li>
+        <li>
+          <details>
+            <summary>Список глав</summary>
+            <menu>
+              <details name="nav-chapter">
+                <summary>Начало пути</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/beginning/ancient.html">Древний мир</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/middle-ages.html"
+                      >Средневековье</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/beginning/new-age.html">Новое время</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Академия наук</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/academy/foundation.html">Основание</a>
+                  </li>
+                  <li>
+                    <a href="/chapters/academy/numerical-methods/index.html"
+                      >Численные методы</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/academy/contribution.html">Вклад</a>
+                  </li>
+                </menu>
+              </details>
+              <details name="nav-chapter">
+                <summary>Преемственность</summary>
+                <menu>
+                  <li>
+                    <a href="/chapters/finale/legacy.html">Наследие Академии</a>
+                  </li>
+                  <li>
+                    <a aria-current="page" href="/chapters/finale/modern.html"
+                      >Современность</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/chapters/finale/conclusion.html">Заключение</a>
+                  </li>
+                </menu>
+              </details>
+            </menu>
+          </details>
+        </li>
+        <li><a href="/about.html">О нас</a></li>
+      </menu>
+    </nav>
+    <main>
+      <div id="slideshow">
+        <ul id="slideshow-nav">
+          <li>
+            <a href="#machine-learning">
+              <img
+                src="/static/img/machine-learning.svg"
+                alt="Машинное обучение"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#medicine">
+              <img
+                src="/static/img/medicine.svg"
+                alt="Медицина и биомедицина"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#modelling-3d">
+              <img src="/static/img/modelling-3d.svg" alt="3D-моделирование" />
+            </a>
+          </li>
+          <li>
+            <a href="#supercomputers">
+              <img
+                src="/static/img/supercomputers.svg"
+                alt="Суперкомпьютерное моделирование"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#data-science">
+              <img
+                src="/static/img/data-science.svg"
+                alt="Обработка больших данных"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#quantum-computing">
+              <img
+                src="/static/img/quantum-computing.svg"
+                alt="Квантовые вычисления"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#bioinformatics">
+              <img
+                src="/static/img/bioinformatics.svg"
+                alt="Биоинформатика и геномика"
+              />
+            </a>
+          </li>
+        </ul>
+        <div id="slide-container">
+          <article id="intro" class="slide">
+            <span>Нажми сюда!</span>
+          </article>
+          <article id="machine-learning" class="slide">
+            <h2>Машинное обучение</h2>
+            <p>
+              Вычислительные методы в машинном обучении используются для
+              обработки данных, выявления закономерностей и построения моделей,
+              способных выполнять классификацию, прогнозирование и
+              автоматический анализ. Они позволяют работать с большими наборами
+              информации, уменьшать ошибки и повышать надёжность решений. Такие
+              методы применяются в системах рекомендаций, анализе изображений,
+              обработке речи и оптимизации технических процессов.
+            </p>
+          </article>
+          <article id="medicine" class="slide">
+            <h2>Медицина и биомедицина</h2>
+            <p>
+              В медицине вычислительные подходы применяются для анализа снимков,
+              автоматизированной обработки клинических данных и оценки
+              эффективности лечения. Алгоритмы помогают выявлять отклонения,
+              сравнивать результаты исследований, моделировать реакцию
+              биологических систем на вмешательство. Это ускоряет диагностику,
+              снижает вероятность ошибок и улучшает качество планирования
+              терапевтических процедур.
+            </p>
+          </article>
+          <article id="modelling-3d" class="slide">
+            <h2>3D-моделирование</h2>
+            <p>
+              В 3D-моделировании вычислительные методы обеспечивают создание и
+              преобразование виртуальных объектов с учётом геометрии, материалов
+              и физических свойств. Они позволяют выполнять точную визуализацию,
+              анализировать конструктивные параметры, проверять устойчивость
+              моделей и прогнозировать их поведение. Такой подход активно
+              используется в инженерии, архитектуре, промышленном дизайне и
+              анимации.
+            </p>
+          </article>
+          <article id="supercomputers" class="slide">
+            <h2>Суперкомпьютерное моделирование</h2>
+            <p>
+              Суперкомпьютеры применяются для решения задач, требующих огромного
+              числа вычислений: моделирования климата, аэродинамики, процессов в
+              материаловедении и астрофизике. Параллельные алгоритмы позволяют
+              получать детализированные результаты, недоступные обычным
+              системам. Это помогает исследовать сложные явления, проводить
+              виртуальные эксперименты и создавать технические решения,
+              основанные на точных расчётах.
+            </p>
+          </article>
+          <article id="data-science" class="slide">
+            <h2>Обработка больших данных</h2>
+            <p>
+              При работе с большими данными вычислительные методы обеспечивают
+              хранение, фильтрацию, структурирование и анализ огромных
+              информационных массивов. Они позволяют выявлять тенденции,
+              обнаруживать аномалии, оценивать вероятность событий и
+              поддерживать принятие решений в реальном времени. Такие подходы
+              применяются в науке, бизнесе, промышленности, мониторинге систем и
+              анализе пользовательской активности.
+            </p>
+          </article>
+          <article id="quantum-computing" class="slide">
+            <h2>Квантовые вычисления</h2>
+            <p>
+              Квантовые вычислительные методы основаны на использовании
+              квантовых состояний для обработки информации. Они применяются для
+              оптимизации, моделирования квантовой химии, исследования
+              материалов и решения задач, которые классическим системам даются
+              крайне сложно. Развитие квантовых алгоритмов и симуляторов
+              позволяет оценивать перспективы будущих квантовых устройств и
+              создавать устойчивые схемы вычислений.
+            </p>
+          </article>
+          <article id="bioinformatics" class="slide">
+            <h2>Биоинформатика и геномика</h2>
+            <p>
+              В биоинформатике вычислительные методы используются для анализа
+              генетических последовательностей, поиска мутаций, классификации
+              образцов и построения эволюционных связей. Эти подходы помогают
+              интерпретировать структуру генома, исследовать наследственные
+              механизмы и разрабатывать персонализированные медицинские
+              стратегии. Вычисления позволяют ускорить обработку данных и
+              повысить точность биологических выводов.
+            </p>
+          </article>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <hr />
+      <p>Вебсайт создан студентами <nobr>Колледжа Цифровых Технологий</nobr></p>
+    </footer>
+  </body>
+</html>
