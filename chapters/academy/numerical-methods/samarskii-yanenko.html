@@ -129,72 +129,359 @@
         </p>
 
         <article>
-          <h3>Теория разностных схем</h3>
+          <h3>Теория операторно-разностных схем</h3>
           <p>
-            Рассмотрим пружинный маятник, выразив его движение уравнением
+            Допустим, требуется смоделировать процесс распространения тепла в
+            тонкой металлической прямоугольной пластине. Этот процесс
+            описывается двумерным уравнением теплопроводности:
             <math display="block">
-              <mrow>
-                <mi>m</mi> <mo>&InvisibleTimes;</mo>
-                <mrow> <mi>x</mi> <mo>&Prime;</mo> </mrow>
-                <mo>+</mo>
-                <mi>c</mi> <mo>&InvisibleTimes;</mo>
-                <mrow> <mi>x</mi> <mo>&prime;</mo> </mrow>
-                <mo>+</mo>
-                <mi>k</mi> <mo>&InvisibleTimes;</mo>
-                <mi>x</mi>
-              </mrow>
+              <mfrac>
+                <mrow>
+                  <mi>d</mi>
+                  <mi>u</mi>
+                </mrow>
+                <mrow>
+                  <mi>d</mi>
+                  <mi>t</mi>
+                </mrow>
+              </mfrac>
               <mo>=</mo>
-              <mn>0</mn>
+              <mrow>
+                <mi>&alpha;</mi>
+                <mo>&InvisibleTimes;</mo>
+                <mrow>
+                  <mo>(</mo>
+                  <mfrac>
+                    <mrow>
+                      <msup>
+                        <mi>d</mi>
+                        <mn>2</mn>
+                      </msup>
+                      <mi>u</mi>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <msup>
+                        <mi>x</mi>
+                        <mn>2</mn>
+                      </msup>
+                    </mrow>
+                  </mfrac>
+                  <mo>+</mo>
+                  <mfrac>
+                    <mrow>
+                      <msup>
+                        <mi>d</mi>
+                        <mn>2</mn>
+                      </msup>
+                      <mi>u</mi>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <msup>
+                        <mi>y</mi>
+                        <mn>2</mn>
+                      </msup>
+                    </mrow>
+                  </mfrac>
+                  <mo>)</mo>
+                </mrow>
+              </mrow>
               <mtext>,</mtext>
             </math>
             где: <br />
-            <math display="inline"> <mi>x</mi> </math> – отклонение маятника от
-            положения равновесия, <br />
             <math display="inline">
-              <mrow> <mi>x</mi> <mo>&prime;</mo> </mrow>
+              <mi>u</mi>
+              <mrow>
+                <mo>(</mo>
+                <mi>t</mi>
+                <mo>,</mo>
+                <mi>x</mi>
+                <mo>,</mo>
+                <mi>y</mi>
+                <mo>)</mo>
+              </mrow>
             </math>
-            – скорость (первая производная), <br />
+            — температура в точке
             <math display="inline">
-              <mrow> <mi>x</mi> <mo>&Prime;</mo> </mrow>
+              <mo>(</mo>
+              <mi>x</mi>
+              <mo>,</mo>
+              <mi>y</mi>
+              <mo>)</mo>
             </math>
-            – ускорение (вторая производная), <br />
-            <math display="inline"> <mi>m</mi> </math> – масса, <br />
-            <math display="inline"> <mi>c</mi> </math> – коэффициент затухания,
+            в момент времени
+            <math display="inline">
+              <mi>t</mi>
+              <mtext>,</mtext>
+            </math>
             <br />
-            <math display="inline"> <mi>k</mi> </math> – жёсткость пружины.
-          </p>
-          <p>
-            Допустим, требуется зная начальное положение и скорость, найти, как
-            <math display="inline"> <mi>x</mi> </math> меняется со временем (т.
-            е. получить возможность моделировать движение маятника).
+            &alpha; — коэффициент теплопроводности.
           </p>
           <div class="info">
             <p>
-              Уравнение является непрерывным, т. е. точно описывает, как маятник
-              должен двигаться в любой момент времени. Но компьютеры не умеют
-              работать с уравнениями в таком виде, поэтому сначала необходимо
-              его дискретизировать. С этим помогут разностные схемы: с помощью
-              них можно вычислить положение маятника на следующем шаге, зная его
-              положение на нескольких предыдущих шагах.
+              Решить эту задачу можно с помощью численных методов, а именно –
+              разностных схем.
             </p>
           </div>
           <p>
-            Для того чтобы создать схему, производные заменяют на разности.
-            Подставив получившиеся выражения в исходное уравнение, можно вывести
-            формулу для вычисления следующих значений
+            Их принцип состоит в дискретизации (введении сетки с шагами
             <math display="inline">
-              <mi>x</mi>
-              <mtext>.</mtext>
+              <msub>
+                <mi>h</mi>
+                <mi>x</mi>
+              </msub>
             </math>
+            и
+            <math display="inline">
+              <msub>
+                <mi>h</mi>
+                <mi>y</mi>
+              </msub>
+            </math>
+            по осям координат, и шагу
+            <math display="inline">
+              <mi>&tau;</mi>
+            </math>
+            по времени) и замене производных разностями:
+            <math display="block">
+              <mfrac>
+                <mrow>
+                  <msup>
+                    <mi>d</mi>
+                    <mn>2</mn>
+                  </msup>
+                  <mi>u</mi>
+                </mrow>
+                <mrow>
+                  <mi>d</mi>
+                  <msup>
+                    <mi>x</mi>
+                    <mn>2</mn>
+                  </msup>
+                </mrow>
+              </mfrac>
+              <mo>&approx;</mo>
+              <mfrac>
+                <mrow>
+                  <msubsup>
+                    <mi>u</mi>
+                    <mrow>
+                      <mi>i</mi>
+                      <mo>+</mo>
+                      <mn>1</mn>
+                      <mo>,</mo>
+                      <mi>j</mi>
+                    </mrow>
+                    <mi>n</mi>
+                  </msubsup>
+                  <mo>-</mo>
+                  <mn>2</mn>
+                  <mo>&InvisibleTimes;</mo>
+                  <msubsup>
+                    <mi>u</mi>
+                    <mrow>
+                      <mi>i</mi>
+                      <mo>,</mo>
+                      <mi>j</mi>
+                    </mrow>
+                    <mi>n</mi>
+                  </msubsup>
+                  <mo>+</mo>
+                  <msubsup>
+                    <mi>u</mi>
+                    <mrow>
+                      <mi>i</mi>
+                      <mo>-</mo>
+                      <mn>1</mn>
+                      <mo>,</mo>
+                      <mi>j</mi>
+                    </mrow>
+                    <mi>n</mi>
+                  </msubsup>
+                </mrow>
+                <msup>
+                  <msub>
+                    <mi>h</mi>
+                    <mi>x</mi>
+                  </msub>
+                  <mn>2</mn>
+                </msup>
+              </mfrac>
+              <mtext>,</mtext>
+            </math>
+            <math display="block">
+              <mfrac>
+                <mrow>
+                  <msup>
+                    <mi>d</mi>
+                    <mn>2</mn>
+                  </msup>
+                  <mi>u</mi>
+                </mrow>
+                <mrow>
+                  <mi>d</mi>
+                  <msup>
+                    <mi>y</mi>
+                    <mn>2</mn>
+                  </msup>
+                </mrow>
+              </mfrac>
+              <mo>&approx;</mo>
+              <mfrac>
+                <mrow>
+                  <msubsup>
+                    <mi>u</mi>
+                    <mrow>
+                      <mi>i</mi>
+                      <mo>,</mo>
+                      <mi>j</mi>
+                      <mo>+</mo>
+                      <mn>1</mn>
+                    </mrow>
+                    <mi>n</mi>
+                  </msubsup>
+                  <mo>-</mo>
+                  <mn>2</mn>
+                  <mo>&InvisibleTimes;</mo>
+                  <msubsup>
+                    <mi>u</mi>
+                    <mrow>
+                      <mi>i</mi>
+                      <mo>,</mo>
+                      <mi>j</mi>
+                    </mrow>
+                    <mi>n</mi>
+                  </msubsup>
+                  <mo>+</mo>
+                  <msubsup>
+                    <mi>u</mi>
+                    <mrow>
+                      <mi>i</mi>
+                      <mo>,</mo>
+                      <mi>j</mi>
+                      <mo>-</mo>
+                      <mn>1</mn>
+                    </mrow>
+                    <mi>n</mi>
+                  </msubsup>
+                </mrow>
+                <msup>
+                  <msub>
+                    <mi>h</mi>
+                    <mi>y</mi>
+                  </msub>
+                  <mn>2</mn>
+                </msup>
+              </mfrac>
+              <mtext>,</mtext>
+            </math>
+            где: <br />
+            <math display="inline">
+              <mi>n</mi>
+            </math>
+            — индекс временного слоя (номер шага по времени), <br />
+            <math display="inline">
+              <mi>i</mi>
+              <mtext>,</mtext>
+            </math>
+            <math display="inline">
+              <mi>j</mi>
+            </math>
+            — индексы узлов по пространственным координатам.
           </p>
-          <div class="frame">
+          <div class="info">
             <p>
-              Хотя Самарский не изобрёл разностные схемы, он внёс огромный вклад
-              в их систематизацию своей теорией операторно-разностных схем,
-              которая помогает создавать схемы по определённым правилам и
-              изучать их свойства.
+              Идея Самарского заключается в переходе от конкретных разностных
+              операторов к обобщённым абстрактным операторам, что позволяет
+              изучать свойства и структуру схемы, не углубляясь в детали
+              определённой задачи.
             </p>
           </div>
+          <p>
+            Запишем схему в операторном виде:
+            <math display="block">
+              <mfrac>
+                <mrow>
+                  <mi>d</mi>
+                  <mi>u</mi>
+                </mrow>
+                <mrow>
+                  <mi>d</mi>
+                  <mi>t</mi>
+                </mrow>
+              </mfrac>
+              <mo>=</mo>
+              <mi>&alpha;</mi>
+              <mo>&InvisibleTimes;</mo>
+              <mrow>
+                <mo>(</mo>
+                <msub>
+                  <mi>&Lambda;</mi>
+                  <mi>x</mi>
+                </msub>
+                <mo>&InvisibleTimes;</mo>
+                <mi>u</mi>
+                <mo>+</mo>
+                <msub>
+                  <mi>&Lambda;</mi>
+                  <mi>y</mi>
+                </msub>
+                <mo>&InvisibleTimes;</mo>
+                <mi>u</mi>
+                <mo>)</mo>
+              </mrow>
+            </math>
+            Тогда явная разностная схема (значения на следующем шаге вычисляются
+            напрямую из значений на предыдущем) может быть записана как:
+            <math display="block">
+              <mfrac>
+                <mrow>
+                  <msup>
+                    <mi>u</mi>
+                    <mrow>
+                      <mi>n</mi>
+                      <mo>+</mo>
+                      <mn>1</mn>
+                    </mrow>
+                  </msup>
+                  <mo>-</mo>
+                  <msup>
+                    <mi>u</mi>
+                    <mi>n</mi>
+                  </msup>
+                </mrow>
+                <mi>&tau;</mi>
+              </mfrac>
+              <mo>=</mo>
+              <mi>&alpha;</mi>
+              <mo>&InvisibleTimes;</mo>
+              <mrow>
+                <mo>(</mo>
+                <msub>
+                  <mi>&Lambda;</mi>
+                  <mi>x</mi>
+                </msub>
+                <mo>&InvisibleTimes;</mo>
+                <msup>
+                  <mi>u</mi>
+                  <mi>n</mi>
+                </msup>
+                <mo>+</mo>
+                <msub>
+                  <mi>&Lambda;</mi>
+                  <mi>y</mi>
+                </msub>
+                <mo>&InvisibleTimes;</mo>
+                <msup>
+                  <mi>u</mi>
+                  <mi>n</mi>
+                </msup>
+                <mo>)</mo>
+              </mrow>
+            </math>
+            Схему, записанную в таком виде можно легко анализировать.
+          </p>
         </article>
       </article>
       <article id="yanenko">
@@ -225,53 +512,155 @@
         </p>
         <article>
           <h3>Метод дробных шагов</h3>
+          <div class="info">
+            <p>
+              Чтобы упростить вычисления с использованием разностных схем, можно
+              разбить один целый шаг на несколько дробных, и на каждом дробном
+              шаге решать только часть задачи. Задачу можно разделить как по
+              физическому смыслу (например, перенос, диффузия), так и по
+              математической структуре (например, направления). Это позволяет
+              значительно уменьшить вычислительную сложность, а также даёт
+              возможность применять специализированные численные методы для
+              отдельных составляющих процесса.
+            </p>
+          </div>
           <p>
-            Метод дробных шагов позволяет строить устойчивые разностные схемы
-            путём разбиения многомерной задачи на множество одномерных, каждая
-            из которых соответствует части одного шагу. Например, вместо
-            уравнения
-            <math display="inline">
-              <mrow>
-                <mi>m</mi> <mo>&InvisibleTimes;</mo>
-                <mrow> <mi>x</mi> <mo>&Prime;</mo> </mrow>
-                <mo>+</mo>
-                <mi>c</mi> <mo>&InvisibleTimes;</mo>
-                <mrow> <mi>x</mi> <mo>&prime;</mo> </mrow>
-                <mo>+</mo>
-                <mi>k</mi> <mo>&InvisibleTimes;</mo>
-                <mi>x</mi>
-              </mrow>
+            Если представить задачу о теплопроводности в виде схемы
+            Писмена-Рэкфорда, частного случая МДШ, разбив её на два дробных шага
+            по оси x и по оси y, то получится:
+            <math display="block">
+              <mfrac>
+                <mrow>
+                  <msup>
+                    <mi>u</mi>
+                    <mrow>
+                      <mi>n</mi>
+                      <mo>+</mo>
+                      <mfrac>
+                        <mn>1</mn>
+                        <mn>2</mn>
+                      </mfrac>
+                    </mrow>
+                  </msup>
+                  <mo>-</mo>
+                  <msup>
+                    <mi>u</mi>
+                    <mi>n</mi>
+                  </msup>
+                </mrow>
+                <mfrac>
+                  <mi>&tau;</mi>
+                  <mn>2</mn>
+                </mfrac>
+              </mfrac>
               <mo>=</mo>
-              <mn>0</mn>
+              <mi>&alpha;</mi>
+              <mo>&InvisibleTimes;</mo>
+              <mrow>
+                <mo>(</mo>
+                <msub>
+                  <mi>&Lambda;</mi>
+                  <mi>x</mi>
+                </msub>
+                <mo>&InvisibleTimes;</mo>
+                <msup>
+                  <mi>u</mi>
+                  <mrow>
+                    <mi>n</mi>
+                    <mo>+</mo>
+                    <mfrac>
+                      <mn>1</mn>
+                      <mn>2</mn>
+                    </mfrac>
+                  </mrow>
+                </msup>
+                <mo>+</mo>
+                <msub>
+                  <mi>&Lambda;</mi>
+                  <mi>y</mi>
+                </msub>
+                <mo>&InvisibleTimes;</mo>
+                <msup>
+                  <mi>u</mi>
+                  <mi>n</mi>
+                </msup>
+                <mo>)</mo>
+              </mrow>
               <mtext>,</mtext>
             </math>
-            решать на одной половине шага уравнение
-            <math display="inline">
+            <math display="block">
+              <mfrac>
+                <mrow>
+                  <msup>
+                    <mi>u</mi>
+                    <mrow>
+                      <mi>n</mi>
+                      <mo>+</mo>
+                      <mn>1</mn>
+                    </mrow>
+                  </msup>
+                  <mo>-</mo>
+                  <msup>
+                    <mi>u</mi>
+                    <mrow>
+                      <mi>n</mi>
+                      <mo>+</mo>
+                      <mfrac>
+                        <mn>1</mn>
+                        <mn>2</mn>
+                      </mfrac>
+                    </mrow>
+                  </msup>
+                </mrow>
+                <mfrac>
+                  <mi>&tau;</mi>
+                  <mn>2</mn>
+                </mfrac>
+              </mfrac>
+              <mo>=</mo>
+              <mi>&alpha;</mi>
+              <mo>&InvisibleTimes;</mo>
               <mrow>
-                <mi>m</mi> <mo>&InvisibleTimes;</mo>
-                <mrow> <mi>x</mi> <mo>&Prime;</mo> </mrow>
+                <mo>(</mo>
+                <msub>
+                  <mi>&Lambda;</mi>
+                  <mi>x</mi>
+                </msub>
+                <mo>&InvisibleTimes;</mo>
+                <msup>
+                  <mi>u</mi>
+                  <mrow>
+                    <mi>n</mi>
+                    <mo>+</mo>
+                    <mfrac>
+                      <mn>1</mn>
+                      <mn>2</mn>
+                    </mfrac>
+                  </mrow>
+                </msup>
                 <mo>+</mo>
-                <mi>k</mi> <mo>&InvisibleTimes;</mo>
-                <mi>x</mi>
+                <msub>
+                  <mi>&Lambda;</mi>
+                  <mi>y</mi>
+                </msub>
+                <mo>&InvisibleTimes;</mo>
+                <msup>
+                  <mi>u</mi>
+                  <mrow>
+                    <mi>n</mi>
+                    <mo>+</mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msup>
+                <mo>)</mo>
               </mrow>
-              <mo>=</mo>
-              <mn>0</mn>
-              <mtext>,</mtext>
-            </math>
-            а на другой половине –
-            <math display="inline">
-              <mrow>
-                <mi>c</mi> <mo>&InvisibleTimes;</mo>
-                <mrow> <mi>x</mi> <mo>&prime;</mo> </mrow>
-              </mrow>
-              <mo>=</mo>
-              <mn>0</mn>
               <mtext>.</mtext>
             </math>
           </p>
         </article>
       </article>
       <article>
+        <!-- TODO: update the example -->
         <h2>Пример</h2>
         <div class="flex">
           <div
