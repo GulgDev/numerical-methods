@@ -111,6 +111,14 @@ input {
   border-radius: 0.4em;
   transition: border-color ease-in-out 120ms;
   padding: 0.2em 0.4em;
+  margin: 1px;
+}
+
+input.inline {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-radius: 0;
 }
 
 input:focus {

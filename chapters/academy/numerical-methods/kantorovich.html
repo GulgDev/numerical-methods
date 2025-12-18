@@ -141,26 +141,134 @@
           </p>
         </div>
         <p>
-          Допустим у нас есть фабрика по производству сока: яблочного и
-          апельсинового. На фабрике имеются ограниченные ресурсы: запас воды и
-          время работы линий. Нам необходимо максимизировать прибыль P, решив,
+          Допустим есть фабрика по производству сока: яблочного и апельсинового.
+          На фабрике имеются ограниченные ресурсы: запас воды и время работы
+          линий. Необходимо максимизировать прибыль
+          <math display="inline"> <mi>P</mi> <mtext>,</mtext> </math> решив,
           сколько яблочного и апельсинового сока фабрика будет производить в
           день, не выходя при этом за рамки имеющихся ограничений. Это задача
-          линейного программирования (не путать с компьютерным
-          программированием!), потому что целевая функция (прибыль) и
+          линейного программирования, потому что целевая функция (прибыль) и
           ограничения (ресурсы) выражаются линейными уравнениями.
         </p>
         <div class="frame">
-          Если мы построим графики ограничений, то каждое неравенство поделит
+          Если построить графики ограничений, то каждое неравенство поделит
           плоскость на две полуплоскости, а их пересечение (решение системы
           неравенств) образует многоугольник (в нашем случае — четырёхугольник).
           Ключевое открытие Канторовича заключается в том, что максимальное
           значение линейной функции (прибыли P) всегда достигается в одной из
           вершин многоугольника, образуемого областью допустимых решений.
         </div>
+        <article>
+          <h3>Пример</h3>
+          <div class="flex">
+            <div class="flex column" style="flex: min-content">
+              <div>
+                <h4>Переменные</h4>
+
+                <!-- TODO: allow adding/removing variables -->
+                <button id="add-var" disabled>+</button>
+
+                <div id="vars-container" class="flex">
+                  <div class="var">
+                    <math display="inline">
+                      <msub>
+                        <mi>x</mi>
+                        <mn>1</mn>
+                      </msub>
+                    </math>
+                  </div>
+                  <div class="var">
+                    <math display="inline">
+                      <msub>
+                        <mi>x</mi>
+                        <mn>2</mn>
+                      </msub>
+                    </math>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4>Ограничения</h4>
+
+                <div id="restrictions-container" class="flex">
+                  <div>
+                    <input class="inline" id="x1-input-0" type="number" />
+                    &InvisibleTimes;
+                    <label for="x1-input-0">
+                      <math display="inline">
+                        <msub> <mi>x</mi> <mn>1</mn> </msub>
+                      </math>
+                    </label>
+                    +
+                    <input class="inline" id="x2-input-0" type="number" />
+                    &InvisibleTimes;
+                    <label for="x2-input-0">
+                      <math display="inline">
+                        <msub> <mi>x</mi> <mn>2</mn> </msub>
+                      </math>
+                    </label>
+                    &GreaterEqual;
+                    <input id="sum-input-0" type="number" />
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4>Целевая функция</h4>
+
+                <div>
+                  <math display="inline">
+                    <mi>P</mi>
+                  </math>
+                  =
+                  <input id="x1-input-0" class="inline" type="number" />
+                  &InvisibleTimes;
+                  <label for="x1-input-0">
+                    <math display="inline">
+                      <msub> <mi>x</mi> <mn>1</mn> </msub>
+                    </math>
+                  </label>
+                  +
+                  <input id="x2-input-0" class="inline" type="number" />
+                  &InvisibleTimes;
+                  <label for="x2-input-0">
+                    <math display="inline">
+                      <msub> <mi>x</mi> <mn>2</mn> </msub>
+                    </math>
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <h4>Результат</h4>
+
+                <div id="result">
+                  <math display="block">
+                    <msub> <mi>x</mi> <mn>1</mn> </msub>
+                    <mo>&approx;</mo>
+                    <mn>12.34</mn>
+                  </math>
+                  <math display="block">
+                    <msub> <mi>x</mi> <mn>2</mn> </msub>
+                    <mo>&approx;</mo>
+                    <mn>12.34</mn>
+                  </math>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex: 200px 1 2">
+              <canvas id="graph" style="max-width: 100%" />
+            </div>
+          </div>
+        </article>
       </article>
-      <!-- TODO: interactive example -->
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      
+    </script>
     <footer>
       <hr />
       <p>Вебсайт создан студентами <nobr>Колледжа Цифровых Технологий</nobr></p>
