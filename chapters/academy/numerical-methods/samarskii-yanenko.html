@@ -805,8 +805,8 @@
         iy = math.identity(inputs.ny.valueAsNumber);
 
         u = math.matrix(
-          Array.from({ length: inputs.nx.valueAsNumber }, (_, i) =>
-            Array.from({ length: inputs.ny.valueAsNumber }, (_, j) =>
+          Array.from({ length: inputs.ny.valueAsNumber }, (_, j) =>
+            Array.from({ length: inputs.nx.valueAsNumber }, (_, i) =>
               Math.exp(
                 -(
                   ((i - inputs.nx.valueAsNumber / 2) / 3) ** 2 +
@@ -844,15 +844,15 @@
             u = math.multiply(
               math.inv(
                 math.subtract(
-                  ix,
-                  math.multiply((values.alpha * values.tau) / 2, lx)
+                  iy,
+                  math.multiply((values.alpha * values.tau) / 2, ly)
                 )
               ),
               math.add(
                 u,
                 math.multiply(
                   (values.alpha * values.tau) / 2,
-                  math.multiply(u, ly)
+                  math.multiply(u, lx)
                 )
               )
             );
@@ -863,13 +863,13 @@
                 u,
                 math.multiply(
                   (values.alpha * values.tau) / 2,
-                  math.multiply(lx, u)
+                  math.multiply(ly, u)
                 )
               ),
               math.inv(
                 math.subtract(
-                  iy,
-                  math.multiply((values.alpha * values.tau) / 2, ly)
+                  ix,
+                  math.multiply((values.alpha * values.tau) / 2, lx)
                 )
               )
             );
@@ -879,8 +879,8 @@
           u = math.add(
             u,
             math.add(
-              math.multiply(values.alpha * values.tau, math.multiply(lx, u)),
-              math.multiply(values.alpha * values.tau, math.multiply(u, ly))
+              math.multiply(values.alpha * values.tau, math.multiply(ly, u)),
+              math.multiply(values.alpha * values.tau, math.multiply(u, lx))
             )
           );
         }
