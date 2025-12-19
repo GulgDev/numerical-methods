@@ -160,114 +160,305 @@
         </div>
         <article>
           <h3>Пример</h3>
-          <div class="flex">
-            <div class="flex column" style="flex: min-content">
-              <div>
-                <h4>Переменные</h4>
+          <div class="flex column">
+            <div>
+              <h4>Переменные</h4>
 
-                <!-- TODO: allow adding/removing variables -->
-                <button id="add-var" disabled>+</button>
+              <button id="add-var">+</button>
 
-                <div id="vars-container" class="flex">
-                  <div class="var">
-                    <math display="inline">
-                      <msub>
-                        <mi>x</mi>
-                        <mn>1</mn>
-                      </msub>
-                    </math>
-                  </div>
-                  <div class="var">
-                    <math display="inline">
-                      <msub>
-                        <mi>x</mi>
-                        <mn>2</mn>
-                      </msub>
-                    </math>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h4>Ограничения</h4>
-
-                <div id="restrictions-container" class="flex">
-                  <div>
-                    <input class="inline" id="x1-input-0" type="number" />
-                    &InvisibleTimes;
-                    <label for="x1-input-0">
-                      <math display="inline">
-                        <msub> <mi>x</mi> <mn>1</mn> </msub>
-                      </math>
-                    </label>
-                    +
-                    <input class="inline" id="x2-input-0" type="number" />
-                    &InvisibleTimes;
-                    <label for="x2-input-0">
-                      <math display="inline">
-                        <msub> <mi>x</mi> <mn>2</mn> </msub>
-                      </math>
-                    </label>
-                    &GreaterEqual;
-                    <input id="sum-input-0" type="number" />
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h4>Целевая функция</h4>
-
-                <div>
+              <template id="var-template">
+                <div class="var">
                   <math display="inline">
-                    <mi>P</mi>
+                    <msub>
+                      <mi>x</mi>
+                      <mn></mn>
+                    </msub>
                   </math>
-                  =
-                  <input id="x1-input-0" class="inline" type="number" />
-                  &InvisibleTimes;
-                  <label for="x1-input-0">
-                    <math display="inline">
-                      <msub> <mi>x</mi> <mn>1</mn> </msub>
-                    </math>
-                  </label>
-                  +
-                  <input id="x2-input-0" class="inline" type="number" />
-                  &InvisibleTimes;
-                  <label for="x2-input-0">
-                    <math display="inline">
-                      <msub> <mi>x</mi> <mn>2</mn> </msub>
-                    </math>
-                  </label>
                 </div>
-              </div>
+              </template>
+
+              <div id="vars-container" class="flex"></div>
+            </div>
+
+            <div>
+              <h4>Ограничения</h4>
+
+              <template id="restriction-var-template">
+                <span>
+                  <input class="inline" type="number" />
+                  &InvisibleTimes;
+                  <label>
+                    <math display="inline">
+                      <msub> <mi>x</mi> <mn></mn> </msub>
+                    </math>
+                  </label>
+                </span>
+              </template>
+              <template id="restriction-template">
+                <div>
+                  <span class="restriction-vars-container"></span>
+                  &GreaterEqual;
+                  <input type="number" />
+                </div>
+              </template>
+
+              <div id="restrictions-container" class="flex column"></div>
+            </div>
+
+            <div>
+              <h4>Целевая функция</h4>
+
+              <template id="objective-var-template">
+                <span>
+                  <input class="inline" type="number" />
+                  &InvisibleTimes;
+                  <label>
+                    <math display="inline">
+                      <msub> <mi>x</mi> <mn></mn> </msub>
+                    </math>
+                  </label>
+                </span>
+              </template>
 
               <div>
-                <h4>Результат</h4>
-
-                <div id="result">
-                  <math display="block">
-                    <msub> <mi>x</mi> <mn>1</mn> </msub>
-                    <mo>&approx;</mo>
-                    <mn>12.34</mn>
-                  </math>
-                  <math display="block">
-                    <msub> <mi>x</mi> <mn>2</mn> </msub>
-                    <mo>&approx;</mo>
-                    <mn>12.34</mn>
-                  </math>
-                </div>
+                <math display="inline">
+                  <mi>P</mi>
+                </math>
+                =
+                <span id="objective-container"> </span>
               </div>
             </div>
 
-            <div style="flex: 200px 1 2">
-              <canvas id="graph" style="max-width: 100%" />
+            <div>
+              <h4>Результат</h4>
+
+              <template id="result-var-template">
+                <math display="block">
+                  <msub> <mi>x</mi> <mn></mn> </msub>
+                  <mo>&approx;</mo>
+                  <mn></mn>
+                </math>
+              </template>
+
+              <div id="results-container"></div>
             </div>
           </div>
         </article>
       </article>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highs@1.8.0"></script>
     <script>
-      
+      const highsPromise = Module({
+        locateFile: (file) => "https://lovasoa.github.io/highs-js/" + file,
+      });
+
+      const varsContainer = document.getElementById("vars-container");
+      const restrictionsContainer = document.getElementById(
+        "restrictions-container"
+      );
+      const objectiveContainer = document.getElementById("objective-container");
+      const resultsContainer = document.getElementById("results-container");
+
+      const varTemplate = document.getElementById("var-template");
+      const restrictionTemplate = document.getElementById(
+        "restriction-template"
+      );
+      const restrictionVarTemplate = document.getElementById(
+        "restriction-var-template"
+      );
+      const objectiveVarTemplate = document.getElementById(
+        "objective-var-template"
+      );
+      const resultVarTemplate = document.getElementById("result-var-template");
+
+      const eventTarget = new EventTarget();
+
+      let nextVarIndex = 1;
+      document.getElementById("add-var").addEventListener("click", () => {
+        eventTarget.dispatchEvent(
+          new CustomEvent("addvar", { detail: nextVarIndex })
+        );
+        while (document.getElementById(`var-x${++nextVarIndex}`));
+      });
+      eventTarget.addEventListener("removevar", ({ detail: i }) => {
+        if (nextVarIndex > i) nextVarIndex = i;
+      });
+
+      eventTarget.addEventListener("addvar", ({ detail: i }) => {
+        const varClone = document.importNode(varTemplate.content, true);
+        varClone.firstElementChild.id = `var-x${i}`;
+        varClone.querySelector("mn").textContent = i;
+        varClone.firstElementChild.addEventListener("click", () => {
+          eventTarget.dispatchEvent(
+            new CustomEvent("removevar", { detail: i })
+          );
+        });
+        varsContainer.append(varClone);
+
+        const objectiveVarClone = document.importNode(
+          objectiveVarTemplate.content,
+          true
+        );
+        objectiveVarClone.firstElementChild.id = `obj-var-x${i}`;
+        objectiveVarClone.querySelector("mn").textContent = i;
+        const objectiveInput = objectiveVarClone.querySelector("input");
+        objectiveInput.id = objectiveVarClone.querySelector(
+          "label"
+        ).htmlFor = `obj-input-x${i}`;
+        objectiveInput.addEventListener("input", handleInput);
+        if (objectiveContainer.childElementCount > 0)
+          objectiveVarClone.firstElementChild.prepend("+");
+        objectiveContainer.append(objectiveVarClone);
+
+        const resultVarClone = document.importNode(
+          resultVarTemplate.content,
+          true
+        );
+        resultVarClone.firstElementChild.id = `result-var-x${i}`;
+        resultVarClone.querySelector("mn").textContent = i;
+        resultsContainer.append(resultVarClone);
+      });
+
+      eventTarget.addEventListener("removevar", ({ detail: i }) => {
+        document.getElementById(`var-x${i}`).remove();
+        for (const element of Array.from(
+          document.getElementsByClassName(`restriction-var-x${i}`)
+        )) {
+          if (!element.previousElementSibling)
+            element.nextElementSibling?.firstChild.remove(); // remove `+`
+          element.remove();
+        }
+        document.getElementById(`obj-var-x${i}`).remove();
+        document.getElementById(`result-var-x${i}`).remove();
+      });
+
+      addRestriction();
+
+      function addRestriction() {
+        // TODO: allow changing inequality sign
+        const restrictionClone = document.importNode(
+          restrictionTemplate.content,
+          true
+        );
+        const self = restrictionClone.firstElementChild;
+        const restrictionVarsContainer = restrictionClone.querySelector(
+          ".restriction-vars-container"
+        );
+        restrictionClone
+          .querySelector("input")
+          .addEventListener("input", updateRestriction);
+        for (const element of document.getElementsByClassName("var")) {
+          const [, i] = element.id.match(/^var-x(\d+)$/);
+          addVar(i);
+        }
+        restrictionsContainer.append(restrictionClone);
+
+        function onAddVar({ detail: i }) {
+          addVar(i);
+        }
+        eventTarget.addEventListener("addvar", onAddVar);
+
+        function addVar(i) {
+          const restrictionVarClone = document.importNode(
+            restrictionVarTemplate.content,
+            true
+          );
+          restrictionVarClone.firstElementChild.className = `restriction-var-x${i}`;
+          restrictionVarClone.querySelector("mn").textContent = i;
+          restrictionVarClone
+            .querySelector("input")
+            .addEventListener("input", updateRestriction);
+          if (restrictionVarsContainer.childElementCount > 0)
+            restrictionVarClone.firstElementChild.prepend("+");
+          restrictionVarsContainer.append(restrictionVarClone);
+        }
+
+        function updateRestriction() {
+          if (
+            Array.from(self.querySelectorAll("input")).every(
+              (input) => !input.value
+            )
+          ) {
+            if (self.previousElementSibling || self.nextElementSibling) {
+              self.remove();
+              eventTarget.removeEventListener("addvar", onAddVar);
+            }
+          } else {
+            if (!self.nextElementSibling) addRestriction();
+          }
+
+          handleInput();
+        }
+      }
+
+      let updateTimeout = undefined;
+      function handleInput() {
+        if (updateTimeout !== undefined) clearTimeout(updateTimeout);
+        updateTimeout = setTimeout(update, 500);
+      }
+
+      async function update() {
+        const highs = await highsPromise;
+
+        let problem = "";
+
+        problem += "Maximize\n obj: ";
+        for (let i = 0; i < objectiveContainer.children.length; i++) {
+          const element = objectiveContainer.children[i];
+
+          const c = element.getElementsByTagName("input")[0].valueAsNumber;
+          if (c === 0) continue;
+          if (i > 0 || c < 0) problem += (c > 0 ? "+" : "-") + " ";
+          problem += Math.abs(c) + " ";
+
+          const [, varName] = element.id.match(/^obj-var-(x\d+)$/);
+          problem +=
+            varName +
+            (i === objectiveContainer.children.length - 1 ? "\n" : " ");
+        }
+
+        problem += "Subject To\n";
+        for (let i = 0; i < restrictionsContainer.children.length; i++) {
+          const restriction = restrictionsContainer.children[i];
+          const inputs = restriction.querySelectorAll("input");
+          const value = inputs[inputs.length - 1].value;
+          if (!value) continue;
+
+          problem += ` c${i}: `;
+
+          const varsContainer = restriction.getElementsByClassName(
+            "restriction-vars-container"
+          )[0];
+          for (let j = 0; j < varsContainer.children.length; j++) {
+            const element = varsContainer.children[j];
+
+            const c = element.getElementsByTagName("input")[0].valueAsNumber;
+            if (c === 0) continue;
+            if (j > 0 || c < 0) problem += (c > 0 ? "+" : "-") + " ";
+            problem += Math.abs(c) + " ";
+
+            const [, varName] = element.className.match(
+              /^restriction-var-(x\d+)$/
+            );
+            problem += varName + " ";
+          }
+
+          problem += ">= ";
+
+          problem += value + "\n";
+        }
+
+        problem += "End\n";
+
+        // TODO: handle errors and different statuses
+        for (const [key, data] of Object.entries(
+          highs.solve(problem).Columns
+        )) {
+          document
+            .getElementById(`result-var-${key}`)
+            .querySelectorAll("mn")[1].textContent = data.Primal;
+        }
+      }
     </script>
     <footer>
       <hr />
