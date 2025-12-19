@@ -776,14 +776,15 @@
 
       document.getElementById("next-step").addEventListener("click", step);
 
-      let lx, ly, ix, iy, u;
-
-      let t = 0;
+      let lx,
+        ly,
+        ix,
+        iy,
+        u,
+        t = 0;
 
       function buildLaplacian1D(n, h) {
-        const l = math.matrix(
-          Array.from({ length: n }, () => Array(n).fill(0))
-        );
+        const l = math.matrix(math.zeros(n, n));
         for (let i = 1; i < n - 1; i++) {
           l.set([i, i - 1], 1 / (h * h));
           l.set([i, i], -2 / (h * h));
@@ -795,28 +796,13 @@
       function init() {
         t = 0;
 
-        lx = buildLaplacian1D(
-          inputs.nx.valueAsNumber,
-          1 / (inputs.nx.valueAsNumber - 1)
-        );
-        ly = buildLaplacian1D(
-          inputs.ny.valueAsNumber,
-          1 / (inputs.ny.valueAsNumber - 1)
-        );
-        ix = math.matrix(
-          Array.from({ length: inputs.nx.valueAsNumber }, (_, i) =>
-            Array.from({ length: inputs.nx.valueAsNumber }, (_, j) =>
-              i === j ? 1 : 0
-            )
-          )
-        );
-        iy = math.matrix(
-          Array.from({ length: inputs.ny.valueAsNumber }, (_, i) =>
-            Array.from({ length: inputs.ny.valueAsNumber }, (_, j) =>
-              i === j ? 1 : 0
-            )
-          )
-        );
+        const hx = 1 / (inputs.nx.valueAsNumber - 1),
+          hy = 1 / (inputs.ny.valueAsNumber - 1);
+
+        lx = buildLaplacian1D(inputs.nx.valueAsNumber, hx);
+        ly = buildLaplacian1D(inputs.ny.valueAsNumber, hy);
+        ix = math.identity(inputs.nx.valueAsNumber);
+        iy = math.identity(inputs.ny.valueAsNumber);
 
         u = math.matrix(
           Array.from({ length: inputs.nx.valueAsNumber }, (_, i) =>
@@ -842,19 +828,6 @@
         });
       }
 
-      function setClamped(input, value) {
-        input.valueAsNumber = value;
-        if (input.min && input.valueAsNumber < input.min)
-          input.valueAsNumber = input.min;
-        else if (input.max && input.valueAsNumber > input.max)
-          input.valueAsNumber = input.max;
-        else if (input.step)
-          input.valueAsNumber =
-            input.step < 1
-              ? Math.round(x * (1 / input.step)) / (1 / input.step) // account for floating-point error
-              : Math.round(x / input.step) * input.step;
-      }
-
       function step() {
         const values = Object.fromEntries(
           Object.entries(inputs).map(([key, input]) => [
@@ -865,8 +838,8 @@
 
         if (Object.values(values).some(Number.isNaN)) return;
 
-        if (fsmCheckbox.checked) { // FIXME
-          if (t % values.tau === 0) {
+        if (fsmCheckbox.checked) {
+          if (t % values.tau < values.tau / 2) {
             fsmCurrent.innerText = "x";
             u = math.multiply(
               math.inv(
@@ -910,8 +883,8 @@
               math.multiply(values.alpha * values.tau, math.multiply(u, ly))
             )
           );
-          update();
         }
+        update();
       }
 
       function update() {
