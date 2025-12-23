@@ -73,7 +73,7 @@ hr {
   width: 100%;
   box-sizing: border-box;
   border-style: solid;
-  border-radius: 1px;
+  border-radius: 2px;
   color: inherit;
 }
 
@@ -142,6 +142,69 @@ button {
   border: none;
   background-color: var(--dark-bg);
   color: var(--dark-fg);
+}
+
+details {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+summary {
+  padding: 1rem 1.2rem;
+  background-color: var(--accent-bg-secondary);
+  list-style-type: none;
+}
+
+summary::after {
+  content: "";
+  display: block;
+  height: 1.2em;
+  width: 1.2em;
+  float: right;
+  margin-left: 0.8rem;
+  background-image: url(/static/img/disclosure.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+/* :open is not supported in Safari */
+details[open] > summary::after {
+  transform: rotate(-180deg);
+}
+
+/* Make the content of closed <details> elements visible, but zero-height
+   to reserve horizontal space even when the element is not open,
+   so that layout shifts don't happen when user opens <details> elements */
+::details-content {
+  content-visibility: visible;
+  overflow: hidden;
+}
+
+@supports (interpolate-size: allow-keywords) {
+  summary::after {
+    transition: transform 200ms ease-in-out;
+  }
+
+  ::details-content {
+    interpolate-size: allow-keywords;
+    transition: height 200ms ease-in-out;
+  }
+
+  details:not([open])::details-content {
+    padding-top: 0;
+    height: 0;
+  }
+
+  details[open]::details-content {
+    height: auto;
+  }
+}
+
+@supports not (interpolate-size: allow-keywords) {
+  details:not([open])::details-content {
+    height: 0;
+  }
 }
 
 fieldset {
