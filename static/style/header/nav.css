@@ -50,14 +50,17 @@ nav * menu {
   padding-left: 1.6rem;
 }
 
-nav li,
-nav summary {
+nav li {
   list-style-type: none;
 }
 
 nav a {
   display: inline-block;
   width: 100%;
+}
+
+nav details {
+  border-radius: 0;
 }
 
 nav a,
