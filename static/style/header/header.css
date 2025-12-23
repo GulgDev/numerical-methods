@@ -27,8 +27,8 @@ header {
   display: grid;
   grid-template-columns: 4.4rem 1fr 4.4rem;
   gap: 1rem;
-  width: fit-content;
-  min-width: 30%;
+  width: 40rem;
+  min-width: fit-content;
   max-width: 100%;
   box-sizing: border-box;
   margin: auto;
