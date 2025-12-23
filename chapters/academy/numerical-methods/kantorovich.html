@@ -197,7 +197,7 @@
               <template id="restriction-template">
                 <div>
                   <span class="restriction-vars-container"></span>
-                  &GreaterEqual;
+                  &LessSlantEqual;
                   <input type="number" />
                 </div>
               </template>
@@ -274,12 +274,21 @@
       const eventTarget = new EventTarget();
 
       let nextVarIndex = 1;
-      document.getElementById("add-var").addEventListener("click", () => {
+      function addVar() {
         eventTarget.dispatchEvent(
           new CustomEvent("addvar", { detail: nextVarIndex })
         );
         while (document.getElementById(`var-x${++nextVarIndex}`));
-      });
+      }
+
+      function removeVar(i) {
+        if (document.getElementsByClassName("var").length > 2)
+          eventTarget.dispatchEvent(
+            new CustomEvent("removevar", { detail: i })
+          );
+      }
+
+      document.getElementById("add-var").addEventListener("click", addVar);
       eventTarget.addEventListener("removevar", ({ detail: i }) => {
         if (nextVarIndex > i) nextVarIndex = i;
       });
@@ -288,11 +297,9 @@
         const varClone = document.importNode(varTemplate.content, true);
         varClone.firstElementChild.id = `var-x${i}`;
         varClone.querySelector("mn").textContent = i;
-        varClone.firstElementChild.addEventListener("click", () => {
-          eventTarget.dispatchEvent(
-            new CustomEvent("removevar", { detail: i })
-          );
-        });
+        varClone.firstElementChild.addEventListener("click", () =>
+          removeVar(i)
+        );
         varsContainer.append(varClone);
 
         const objectiveVarClone = document.importNode(
@@ -331,6 +338,9 @@
         document.getElementById(`obj-var-x${i}`).remove();
         document.getElementById(`result-var-x${i}`).remove();
       });
+
+      addVar();
+      addVar();
 
       addRestriction();
 
@@ -443,7 +453,7 @@
             problem += varName + " ";
           }
 
-          problem += ">= ";
+          problem += "<= ";
 
           problem += value + "\n";
         }
