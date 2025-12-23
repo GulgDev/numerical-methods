@@ -185,10 +185,3 @@ fieldset input {
   padding-left: 1em;
   border-left: 4px solid black;
 }
-
-.seamless {
-  background: transparent;
-  border: none;
-  outline: none;
-  padding: 0;
-}
