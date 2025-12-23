@@ -8,6 +8,8 @@
 
 body {
   margin: 0;
+  background-color: var(--bg);
+  color: var(--fg);
 }
 
 a {
@@ -67,6 +69,14 @@ h2 {
   text-align: center;
 }
 
+hr {
+  width: 100%;
+  box-sizing: border-box;
+  border-style: solid;
+  border-radius: 1px;
+  color: inherit;
+}
+
 figure {
   position: relative;
   width: min-content;
@@ -107,7 +117,7 @@ mtext {
 input {
   font: inherit;
   outline: none;
-  border: 1px solid black;
+  border: 1px solid var(--fg);
   border-radius: 0.4em;
   transition: border-color ease-in-out 120ms;
   padding: 0.2em 0.4em;
@@ -122,14 +132,16 @@ input.inline {
 }
 
 input:focus {
-  border-color: #888;
+  border-color: var(--fg-secondary);
 }
 
-.button {
-  padding: 0.6rem 1.2rem;
-  border-radius: 0.6rem;
-  background-color: #222;
-  color: #eee;
+button {
+  font: inherit;
+  padding: 0.6em 1.8em;
+  border-radius: 1.2em;
+  border: none;
+  background-color: var(--dark-bg);
+  color: var(--dark-fg);
 }
 
 fieldset {
@@ -170,7 +182,7 @@ fieldset input {
 .frame {
   padding: 1em 1.2em;
   border-radius: 0.6em;
-  background-color: #eee;
+  background-color: var(--accent-bg);
 }
 
 .frame > :first-child {
@@ -183,5 +195,5 @@ fieldset input {
 
 .info {
   padding-left: 1em;
-  border-left: 4px solid black;
+  border-left: 4px solid var(--fg);
 }

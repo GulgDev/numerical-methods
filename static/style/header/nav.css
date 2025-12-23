@@ -4,6 +4,8 @@ nav {
   padding-top: 1.2rem;
   padding-bottom: 1.2rem;
   margin: 0;
+  color: var(--accent-fg);
+  background-color: var(--accent-bg-secondary);
   user-select: none;
   transition: transform 200ms ease-in-out, opacity 200ms linear;
 }
@@ -63,8 +65,8 @@ nav summary {
   box-sizing: border-box;
   padding: 0.4rem 0.8em;
   border-radius: 0.4rem;
-  background-color: #d4d4d4;
-  color: black;
+  background-color: var(--accent-bg);
+  color: inherit;
 }
 
 nav summary::after {
@@ -75,7 +77,9 @@ nav summary::after {
   float: right;
   margin-left: 0.8rem;
   background-image: url(/static/img/disclosure.svg);
+  background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
 }
 
 nav details[open] > summary::after {

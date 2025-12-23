@@ -1,0 +1,15 @@
+:root {
+  --bg: #fff;
+  --fg: #0c0501;
+  --fg-secondary: #412d24;
+  --fg-tertiary: #353535;
+
+  --accent-bg: #eecf9f;
+  --accent-bg-secondary: #f5e1c2;
+  --accent-bg-tertiary: #e6bc80;
+  --accent-fg: #281e19;
+  --accent-fg-secondary: #5d3d30;
+
+  --dark-bg: #222;
+  --dark-fg: #eee;
+}
