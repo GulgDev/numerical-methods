@@ -36,11 +36,11 @@ header {
   text-align: center;
 }
 
-header > * {
+header .ui {
   background-color: var(--accent-bg);
 }
 
-header > *,
+header .ui,
 nav {
   padding: 0.6rem 1.2rem;
   border-radius: 1.2rem;
@@ -48,8 +48,56 @@ nav {
   outline: none;
 }
 
-header h1 {
+#title-bar {
+  display: flex;
+  gap: 0.4rem;
+}
+
+#title-bar h1 {
+  flex: auto;
+  display: inline-block;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+#title-bar a {
+  transition: margin 100ms ease-in-out, padding 100ms ease-in-out,
+    border-radius 100ms ease-in-out;
+}
+
+#title-bar:has(a:last-child) h1,
+#title-bar a:first-child {
+  border-top-right-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+}
+
+#title-bar:has(a:first-child) h1,
+#title-bar a:last-child {
+  border-top-left-radius: 0.4rem;
+  border-bottom-left-radius: 0.4rem;
+}
+
+/* Merge navigation button with title on hover */
+
+#title-bar:has(a:last-child:hover) h1,
+#title-bar a:first-child:hover {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#title-bar:has(a:first-child:hover) h1,
+#title-bar a:last-child:hover {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#title-bar a:first-child:hover {
+  margin-right: -0.4rem;
+  padding-left: 1.4rem;
+}
+
+#title-bar a:last-child:hover {
+  margin-left: -0.4rem;
+  padding-right: 1.4rem;
 }

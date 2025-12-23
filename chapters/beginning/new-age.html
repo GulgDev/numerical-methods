@@ -18,7 +18,7 @@
   <body>
     <div id="header-container">
       <header>
-        <a href="/" draggable="false">
+        <a class="ui" href="/" draggable="false">
           <img
             src="/static/img/logo.svg"
             height="32"
@@ -27,10 +27,26 @@
             draggable="false"
           />
         </a>
-        <div>
-          <h1>Новое время</h1>
+        <div id="title-bar">
+          <a class="ui" href="middle-ages.html">
+            <img
+              src="/static/img/arrow-left.svg"
+              height="32"
+              alt="Назад"
+              draggable="false"
+            />
+          </a>
+          <h1 class="ui">Новое время</h1>
+          <a class="ui" href="../academy/foundation.html">
+            <img
+              src="/static/img/arrow-right.svg"
+              height="32"
+              alt="Вперёд"
+              draggable="false"
+            />
+          </a>
         </div>
-                <button id="nav-toggle" popovertarget="nav">
+        <button id="nav-toggle" class="ui" popovertarget="nav">
           <img
             src="/static/img/menu.svg"
             height="32"
