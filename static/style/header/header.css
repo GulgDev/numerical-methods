@@ -25,8 +25,8 @@
 header {
   anchor-name: --header;
   display: grid;
-  grid-template-columns: 4rem auto 4rem;
-  gap: 2rem;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
   width: fit-content;
   max-width: 100%;
   box-sizing: border-box;
@@ -35,12 +35,16 @@ header {
 
 header,
 nav {
-  padding: 0.6rem 1.2rem;
-  border-radius: 1.2rem;
-  background-color: #eee;
   color: #2e2e2e;
   border: none;
   outline: none;
+}
+
+header > div,
+nav {
+  padding: 0.6rem 1.2rem;
+  border-radius: 1.2rem;
+  background-color: #eee;
 }
 
 header > div {
@@ -53,4 +57,5 @@ header > * {
 
 header h1 {
   margin: 0;
+  min-width: 30vw;
 }
