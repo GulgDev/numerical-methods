@@ -1,0 +1,3 @@
+:not(:has(#fsm-checkbox:checked)) #fsm-info {
+  display: none;
+}
