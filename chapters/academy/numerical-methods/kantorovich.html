@@ -432,6 +432,7 @@
           const element = objectiveContainer.children[i];
 
           const c = element.getElementsByTagName("input")[0].valueAsNumber;
+          if (Number.isNaN(c)) return;
           if (c === 0) continue;
           if (i > 0 || c < 0) problem += (c > 0 ? "+" : "-") + " ";
           problem += Math.abs(c) + " ";
@@ -458,6 +459,7 @@
             const element = varsContainer.children[j];
 
             const c = element.getElementsByTagName("input")[0].valueAsNumber;
+            if (Number.isNaN(c)) return;
             if (c === 0) continue;
             if (j > 0 || c < 0) problem += (c > 0 ? "+" : "-") + " ";
             problem += Math.abs(c) + " ";
