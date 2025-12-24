@@ -23,7 +23,7 @@ footer {
 #slideshow {
   display: flex;
   flex-direction: column-reverse;
-  background-color: #ccc;
+  background-color: var(--accent-bg);
   border-radius: 1.5rem;
   box-sizing: border-box;
   padding: 0.5rem;
@@ -45,27 +45,29 @@ footer {
   padding: calc(0.5rem + 0.5vmin);
   width: calc(1rem + 1vmin);
   height: calc(1rem + 1vmin);
-  background-color: white;
+  background-color: var(--bg);
   text-align: center;
 }
 
 #slideshow-nav img {
   vertical-align: baseline;
+  filter: brightness(var(--brightness, 1));
 }
 
-:has(#machine-learning:target) a[href="#machine-learning"],
-:has(#medicine:target) a[href="#medicine"],
-:has(#modelling-3d:target) a[href="#modelling-3d"],
-:has(#supercomputers:target) a[href="#supercomputers"],
-:has(#data-science:target) a[href="#data-science"],
-:has(#quantum-computing:target) a[href="#quantum-computing"],
-:has(#bioinformatics:target) a[href="#bioinformatics"] {
-  background-color: #aaa;
+:has(#machine-learning:target) #slideshow-nav a[href="#machine-learning"],
+:has(#medicine:target) #slideshow-nav a[href="#medicine"],
+:has(#modelling-3d:target) #slideshow-nav a[href="#modelling-3d"],
+:has(#supercomputers:target) #slideshow-nav a[href="#supercomputers"],
+:has(#data-science:target) #slideshow-nav a[href="#data-science"],
+:has(#quantum-computing:target) #slideshow-nav a[href="#quantum-computing"],
+:has(#bioinformatics:target) #slideshow-nav a[href="#bioinformatics"] {
+  background-color: #412d24;
+  --brightness: 10; /* A hack to make the active slide icon white */
 }
 
 #slide-container {
   display: grid;
-  background-color: white;
+  background-color: var(--bg);
   border-radius: 1rem 1rem 0.2rem 0.2rem;
   padding: 2rem;
   overflow: hidden;
@@ -91,5 +93,16 @@ footer {
 .slide:not(:target) {
   opacity: 0;
   pointer-events: none;
+  user-select: none;
+}
+
+#intro a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 2rem;
   user-select: none;
 }
