@@ -1,0 +1,18 @@
+.var {
+  padding: 0.6em 1.2em;
+  border-radius: 1.2em;
+  background-color: var(--accent-bg-secondary);
+  color: var(--accent-fg);
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+}
+
+#vars-container:not(:has(:nth-child(3))) .var {
+  cursor: not-allowed;
+}
+
+/* Vars can only be removed if there are at least 3 of them */
+#vars-container:has(:nth-child(3)) .var:hover {
+  background-color: #f44;
+  color: var(--dark-fg);
+}
