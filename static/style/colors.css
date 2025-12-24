@@ -1,15 +1,21 @@
 :root {
   --bg: #fff;
+  --bg-hover: #f8f4e5;
   --fg: #0c0501;
   --fg-secondary: #412d24;
   --fg-tertiary: #353535;
 
   --accent-bg: #eecf9f;
+  --accent-bg-hover: #ffce89;
+  --accent-bg-active: #eeb970;
   --accent-bg-secondary: #f5e1c2;
+  --accent-bg-secondary-hover: #fff9e5;
   --accent-bg-tertiary: #e6bc80;
   --accent-fg: #281e19;
   --accent-fg-secondary: #5d3d30;
 
-  --dark-bg: #281e19;
+  --dark-bg: #45342b;
+  --dark-bg-hover: #5d4437;
+  --dark-bg-active: #2f221b;
   --dark-fg: #fff;
 }

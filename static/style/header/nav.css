@@ -50,6 +50,11 @@ nav * menu {
   padding-left: 1.6rem;
 }
 
+nav [aria-current="page"] {
+  background-color: var(--accent-bg-active) !important;
+  font-weight: 600;
+}
+
 nav li {
   list-style-type: none;
 }
@@ -70,6 +75,10 @@ nav summary {
   border-radius: 0.4rem;
   background-color: var(--accent-bg);
   color: inherit;
+}
+
+nav a:hover {
+  background-color: var(--accent-bg-hover);
 }
 
 nav summary::after {

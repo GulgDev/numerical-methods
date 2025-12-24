@@ -49,6 +49,10 @@ footer {
   text-align: center;
 }
 
+#slideshow-nav a:hover {
+  background-color: var(--bg-hover);
+}
+
 #slideshow-nav img {
   vertical-align: baseline;
   filter: brightness(var(--brightness, 1));
@@ -105,4 +109,9 @@ footer {
   text-align: center;
   font-size: 2rem;
   user-select: none;
+  transition: transform 100ms ease-in-out;
+}
+
+#intro a:hover {
+  transform: scale(1.1);
 }

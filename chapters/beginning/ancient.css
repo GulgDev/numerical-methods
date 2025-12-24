@@ -46,6 +46,10 @@
   border-radius: 50%;
 }
 
+.map-info-close:hover {
+  background-color: var(--accent-bg-secondary-hover);
+}
+
 .map-info-close > img {
   vertical-align: baseline;
 }

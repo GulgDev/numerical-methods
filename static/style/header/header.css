@@ -40,6 +40,10 @@ header .ui {
   background-color: var(--accent-bg);
 }
 
+header :is(a, button).ui:hover {
+  background-color: var(--accent-bg-hover);
+}
+
 header .ui,
 nav {
   padding: 0.6rem 1.2rem;

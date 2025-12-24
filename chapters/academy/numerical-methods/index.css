@@ -5,12 +5,29 @@
   padding: 0;
 }
 
+#scientists a {
+  display: inline-block;
+}
+
 #scientists li::marker {
   content: "";
 }
 
 #scientists img {
+  mask: linear-gradient(-60deg, #000 30%, #0005, #000 70%) right / 500% 100%;
   border-radius: 1.2em;
+  transition: transform 200ms ease-out;
+}
+
+#scientists a:hover img {
+  transform: translateY(-1em);
+  animation: shimmer 2s;
+}
+
+@keyframes shimmer {
+  100% {
+    mask-position: left;
+  }
 }
 
 #scientists span {

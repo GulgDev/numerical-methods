@@ -23,17 +23,6 @@ summary {
   cursor: pointer;
 }
 
-a:hover,
-button:hover,
-summary:hover {
-  filter: brightness(1.2);
-}
-
-[aria-current] {
-  filter: brightness(0.9);
-  font-weight: bold;
-}
-
 img {
   user-select: none;
   vertical-align: middle;
@@ -146,6 +135,14 @@ button {
   color: var(--dark-fg);
 }
 
+button:hover {
+  background-color: var(--dark-bg-hover);
+}
+
+button:active {
+  background-color: var(--dark-bg-active);
+}
+
 details {
   border-radius: 1rem;
   overflow: hidden;
@@ -168,6 +165,10 @@ summary::after {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+}
+
+summary:hover {
+  background-color: var(--accent-bg-hover);
 }
 
 /* :open is not supported in Safari */
