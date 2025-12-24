@@ -67,6 +67,8 @@ hr {
   color: inherit;
 }
 
+/* TODO: use container queries to detect when
+   figcaption is too big and place it under the image */
 figure {
   position: relative;
   width: min-content;
