@@ -175,7 +175,7 @@ summary::after {
   width: 1.2em;
   float: right;
   margin-left: 0.8rem;
-  background-image: url(/static/img/disclosure.svg);
+  background-image: url(../../static/img/disclosure.svg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
